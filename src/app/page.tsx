@@ -297,9 +297,7 @@ export default function Page() {
               <h3 className="mb-1 flex items-center gap-2 text-base md:text-xl font-semibold text-gray-900">
                 <MapPin className="h-5 w-5" /> 오시는 길
               </h3>
-              <p className="text-sm md:text-lg text-700">
-                장소 및 교통·숙박 안내
-              </p>
+              <p className="text-sm md:text-lg text-700">장소 및 교통 안내</p>
             </Link>
           </div>
         </div>
