@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { asset } from "@/lib/paths";
 import AutoSplitLetter from "@/components/AutoSplitLetter";
+import ComingSoon from "@/components/ComingSoon";
 
 export default function Page() {
   const letter = `사랑하는 회원님!
@@ -47,17 +48,20 @@ export default function Page() {
           </li>
         </ol>
       </nav>
+      {true ? (
+        <ComingSoon />
+      ) : (
+        <section className="rounded-2xl border bg-white p-6 shadow-sm">
+          <AutoSplitLetter text={letter} imageSrc={asset("/files/sim.jpg")} />
 
-      <section className="rounded-2xl border bg-white p-6 shadow-sm">
-        <AutoSplitLetter text={letter} imageSrc={asset("/files/sim.jpg")} />
-
-        <div className="mt-8 space-y-3 text-right text-black text-lg">
-          <p>{signature.organization}</p>
-          <p className="whitespace-pre-wrap font-bold text-3xl text-gray-700">
-            {signature.name}
-          </p>
-        </div>
-      </section>
+          <div className="mt-8 space-y-3 text-right text-black text-lg">
+            <p>{signature.organization}</p>
+            <p className="whitespace-pre-wrap font-bold text-3xl text-gray-700">
+              {signature.name}
+            </p>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

@@ -10,11 +10,11 @@ export default function Page() {
       amount: "(KRW) 20,000 원",
       note: "-",
     },
-    {
-      type: "국립여수해양기상과학관 투어",
-      amount: "무료",
-      note: "점심 제공",
-    },
+    // {
+    //   type: "국립여수해양기상과학관 투어",
+    //   amount: "무료",
+    //   note: "점심 제공",
+    // },
   ];
 
   return (
@@ -83,7 +83,8 @@ export default function Page() {
             학술대회 참가비에는 초록제출비가 포함되어 있지 않습니다.
           </li>
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            온라인 결제는 12월 03일까지 가능합니다.
+            {/* 온라인 결제는 12월 03일까지 가능합니다. */}
+            온라인 결제는 곧 추가될 예정입니다.
           </li>
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
             학술대회 당일 오프라인 현장결제 가능합니다.
@@ -113,8 +114,8 @@ export default function Page() {
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
             등록 취소 및 환불기간은 아래의 내용 참고 부탁드립니다.
           </li>
-          <li className="relative pl-10">2025년 12월 03일 이전: 전액 환불</li>
-          <li className="relative pl-10">2025년 12월 03일 이후: 문의 요망</li>
+          <li className="relative pl-10">2026년 6월 22일 이전: 전액 환불</li>
+          <li className="relative pl-10">2026년 6월 22일 이후: 문의 요망</li>
         </ul>
       </section>
     </main>

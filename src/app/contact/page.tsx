@@ -21,34 +21,36 @@ export default function Page() {
           <p className="text-lg md:flex gap-1 items-center">
             <span className="flex gap-1">
               <MapPinHouse />
-              주소 : 전남 여수시 오동도로 61-13
+              주소 : 서울특별시 서초구 강남대로 27 (양재동 232
             </span>
             <a
-              href="https://www.yeosuvenezia.com/"
-              className="underline underline-offset-2 ml-16 md:ml-0"
+              href="https://www.at.or.kr/contents/acko331400/view.action"
+              className="underline underline-offset-2 ml-16 md:ml-0 text-indigo-600"
               rel="noopener noreferrer"
               target="_blank"
             >
-              여수베네치아호텔앤스위트
-            </a>
+              aT센터
+            </a>{" "}
+            ), 1층
           </p>
           <p className="text-lg flex gap-1 items-center">
             <Phone />
-            <a href="tel:0616640001"> 전화 : 061-664-0001</a>
+            <a href="tel:0263001114"> 전화 : 02-6300-1114</a>
           </p>
         </div>
 
         {/* 지도 */}
         <LocationMap
-          title="여수베네치아호텔앤스위트"
-          point={{ lat: 34.74577866287442, lng: 127.75189305228245 }}
+          title="양재 aT센터"
+          point={{ lat: 37.4682787075426, lng: 127.039136433366 }}
           initLevel={3}
           bigView={{
-            srcid: 1748504512,
-            itemId: 1748504512,
-            q: "여수베네치아호텔앤스위트",
-            urlX: 672126.0000000028,
-            urlY: 347876.00000000326,
+            srcid: 17023403,
+            itemId: 17023403,
+            q: "aT센터",
+            urlX: 508680.0000000024,
+            urlY: 1102413.0000000005,
+
             mapType: "TYPE_MAP",
           }}
         />

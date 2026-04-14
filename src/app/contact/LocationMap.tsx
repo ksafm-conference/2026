@@ -43,7 +43,7 @@ export default function LocationMap({
       `https://map.kakao.com/link/to/${encodeURIComponent(title)},${
         point.lat
       },${point.lng}`,
-    [title, point.lat, point.lng]
+    [title, point.lat, point.lng],
   );
 
   // 지도 크게 보기
@@ -87,7 +87,7 @@ export default function LocationMap({
         >
           <div
             onClick={() => window.open(directionsUrl, "_blank")}
-            className="relative -inset-0.5 w-[110%] cursor-pointer rounded bg-blue-500 p-2 text-center text-white hover:bg-blue-600"
+            className="relative -inset-x-0.5 h-[110%] w-[150%] cursor-pointer rounded bg-blue-500 p-2 font-semibold text-center text-white hover:bg-blue-600"
           >
             {title}
           </div>

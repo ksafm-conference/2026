@@ -90,24 +90,28 @@ export default function Page() {
                 장소: {home.venueText}
               </span>
               <br />
-              <span className="inline-flex items-center gap-2 text-gray-800">
-                후원:{" "}
-                {home.sponsorship.map((s) => (
-                  <a
-                    key={s.url}
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center"
-                  >
-                    <img
-                      src={asset(s.logo)}
-                      alt={s.name ?? "sponsorship logo"}
-                      className="h-7 w-auto md:h-8"
-                    />
-                  </a>
-                ))}
-              </span>
+              {home.sponsorship && home.sponsorship.length > 0 && (
+                <span className="inline-flex items-center gap-2 text-gray-800">
+                  후원:{" "}
+                  {home.sponsorship.map(
+                    (s: { url: string; logo: string; name?: string }) => (
+                      <a
+                        key={s.url}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center"
+                      >
+                        <img
+                          src={asset(s.logo)}
+                          alt={s.name ?? "sponsorship logo"}
+                          className="h-7 w-auto md:h-8"
+                        />
+                      </a>
+                    ),
+                  )}
+                </span>
+              )}
             </p>
 
             {/* ▶ 메인 CTA 버튼 3개 (프로그램 / 참가등록 / 초록제출) */}
@@ -168,36 +172,44 @@ export default function Page() {
               주요 일정
             </h2>
             <ul className="space-y-1">
-              {home.importantDates.map((d) => {
-                const crossed = d.strike === true; // ✅ 수동 플래그만 확인
-                return (
-                  <li key={d.date} className="flex items-start gap-3">
-                    <div className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-800" />
-                    <div>
-                      <p
-                        className={[
-                          "font-medium text-lg md:text-xl",
-                          crossed
-                            ? "line-through text-gray-500"
-                            : "text-gray-900",
-                        ].join(" ")}
-                      >
-                        {d.label}
-                      </p>
-                      <p
-                        className={[
-                          "text-lg md:text-xl",
-                          crossed
-                            ? "line-through text-gray-500"
-                            : "text-gray-900",
-                        ].join(" ")}
-                      >
-                        {d.date}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
+              {home.importantDates.map(
+                (
+                  d: { date: string; label: string; strike?: boolean },
+                  index,
+                ) => {
+                  const crossed = d.strike ?? false; // ✅ 수동 플래그만 확인
+                  return (
+                    <li
+                      key={`${d.date}+${index}`}
+                      className="flex items-start gap-3"
+                    >
+                      <div className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-800" />
+                      <div>
+                        <p
+                          className={[
+                            "font-medium text-lg md:text-xl",
+                            crossed
+                              ? "line-through text-gray-500"
+                              : "text-gray-900",
+                          ].join(" ")}
+                        >
+                          {d.label}
+                        </p>
+                        <p
+                          className={[
+                            "text-lg md:text-xl",
+                            crossed
+                              ? "line-through text-gray-500"
+                              : "text-gray-900",
+                          ].join(" ")}
+                        >
+                          {d.date}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                },
+              )}
             </ul>
           </div>
         </div>

@@ -56,13 +56,12 @@ export default function Page() {
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            주제: 2025 한국 기후위기 평가와 농림기상 미래전략
-            <br /> (2025 Korea Climate Crisis Assessment and Agrometeorological
-            Future Strategies)
+            주제: 추후 공지
           </li>
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            분야: 경지미기후, 국지기후, 농업기후개조, 산림기상, 식물병해충,
-            환경계측, 생태모형, 영농활용, 수문기상, 농업원격탐사 등
+            분야: 추후 공지
+            {/* 분야: 경지미기후, 국지기후, 농업기후개조, 산림기상, 식물병해충,
+            환경계측, 생태모형, 영농활용, 수문기상, 농업원격탐사 등 */}
           </li>
         </ul>
       </section>
@@ -94,17 +93,20 @@ export default function Page() {
           초록 제출 양식
         </SectionTitle>
         <div className="flex flex-wrap gap-2">
+          추후 공지
           {/* 양식 다운로드 (hwp) */}
+          {/*           
           <a
             href={asset(TEMPLATE_DOC)}
             download
             className="inline-flex items-center gap-2 rounded-xl border border-indigo-600/20 bg-gradient-to-b from-indigo-500 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:from-indigo-500 hover:to-indigo-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/50 active:scale-95"
+            rel="noopener noreferrer"
           >
             <Download className="h-4 w-4" />
             초록 양식 다운로드
-          </a>
-
+          </a> */}
           {/* 제출 페이지 이동 */}
+          {/* 
           <a
             href={externalLinks.submission}
             target="_blank"
@@ -113,7 +115,7 @@ export default function Page() {
           >
             초록 제출
             <ExternalLink className="h-4 w-4" />
-          </a>
+          </a> */}
         </div>
 
         {/* 안내 박스 */}

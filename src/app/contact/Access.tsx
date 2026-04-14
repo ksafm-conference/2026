@@ -20,7 +20,9 @@ type RouteRow = {
 };
 
 export default function Access({ embedded = false, className }: AccessProps) {
-  const [tab, setTab] = useState<"car" | "train" | "air">("car");
+  const [tab, setTab] = useState<"car" | "subway" | "train" | "air" | "etc">(
+    "car",
+  );
 
   const Container = ({ children }: PropsWithChildren) =>
     embedded ? (
@@ -37,8 +39,10 @@ export default function Access({ embedded = false, className }: AccessProps) {
     <Container>
       <Tabs value={tab} onChange={setTab} />
       {tab === "car" && <CarPanel />}
-      {tab === "train" && <TrainPanel />}
-      {tab === "air" && <AirPanel />}
+      {tab === "subway" && <SubwayPanel />}
+      {/* {tab === "train" && <TrainPanel />} */}
+      {/* {tab === "air" && <AirPanel />} */}
+      {tab === "etc" && <EtcPanel />}
     </Container>
   );
 }
@@ -49,13 +53,18 @@ function Tabs({
   value,
   onChange,
 }: {
-  value: "car" | "train" | "air";
-  onChange: (v: "car" | "train" | "air") => void;
+  value: "car" | "subway" | "train" | "air" | "etc";
+  onChange: (v: "car" | "subway" | "train" | "air" | "etc") => void;
 }) {
-  const items: { key: "car" | "train" | "air"; label: string }[] = [
+  const items: {
+    key: "car" | "subway" | "train" | "air" | "etc";
+    label: string;
+  }[] = [
     { key: "car", label: "자동차편" },
-    { key: "train", label: "기차편" },
-    { key: "air", label: "항공편" },
+    { key: "subway", label: "지하철편" },
+    // { key: "train", label: "기차편" },
+    // { key: "air", label: "항공편" },
+    { key: "etc", label: "기타" },
   ];
 
   return (
@@ -96,34 +105,72 @@ function Tabs({
 function CarPanel() {
   const rows: RouteRow[] = [
     {
-      from: "서울",
-      to: "여수",
-      time: "서울시청 출발 기준 약 3시간 55분",
-      route: "서울 > 천안JC > 논산JC > 익산JC > 완주JC > 동순천IC > 여수",
+      from: "서울역",
+      to: "aT센터",
+      time: "총 소요시간 : 약 32분",
+      route:
+        "서울역 → 남산 1호터널 → 한남 IC → 경부고속도로 → 양재 IC → 염곡사거리 → aT센터",
+    },
+    {
+      from: "잠실역",
+      to: "aT센터",
+      time: "총 소요시간 : 약 30분",
+      route:
+        "잠실역 교차로 → 올림픽로 → 가락시장 사거리 → 수서 IC → 양재대로 → 염곡사거리 → aT센터",
+    },
+    {
+      from: "영등포역",
+      to: "aT센터",
+      time: "총 소요시간 : 약 40분",
+      route:
+        "영등포역 → 경인로 → 노들로 → 올림픽대로 → 반포대교분기점 → 반포 IC → 경부고속도로 → 염곡사거리 → aT센터",
+    },
+    {
+      from: "인천",
+      to: "aT센터",
+      time: "총 소요시간 : 약 1시간",
+      route:
+        "인천 → 제2경인고속도로 → 서울외곽순환고속도로 → 과천의왕간고속화도로 → 우면산로 → 선암 IC → 염곡사거리 → aT센터",
     },
     {
       from: "대전",
-      to: "여수",
-      time: "대전시청 출발 기준 약 2시간 40분",
-      route: "대전 > 익산JC > 완주JC > 동순천IC > 여수",
+      to: "aT센터",
+      time: "약 2시간 20분",
+      route:
+        "대전 → 경부고속도로 → 서울 톨게이트 → 양재 IC → 염곡사거리 → aT센터",
+    },
+    {
+      from: "강릉",
+      to: "aT센터",
+      time: "총 소요시간 : 약 2시간 50분",
+      route:
+        "강릉 IC → 동해고속도로 → 영동고속도로 → 경부고속도로 → 양재 IC → 염곡사거리 → aT센터",
+    },
+    {
+      from: "천안",
+      to: "aT센터",
+      time: "총 소요시간 : 약 1시간 30분",
+      route: "천안 IC → 경부고속도로 → 양재 IC → 염곡사거리 → aT센터",
     },
     {
       from: "광주",
-      to: "여수",
-      time: "광주시청 출발 기준 약 1시간 20분",
-      route: "서광주 > 순천IC > 여수",
+      to: "aT센터",
+      time: "총 소요시간 : 약 3시간 30분",
+      route: "호남고속도로 → 경부고속도로 → 양재 IC → 염곡사거리 → aT센터",
+    },
+    {
+      from: "대구",
+      to: "aT센터",
+      time: "총 소요시간 : 약 3시간 10분",
+      route:
+        "북대구 IC → 경부고속도로 → 중부내륙고속도로 → 영동고속도로 → 경부고속도로 → 양재 IC → 염곡사거리 → aT센터",
     },
     {
       from: "부산",
-      to: "여수",
-      time: "부산시청 출발 기준 약 2시간 10분",
-      route: "부산 > 냉정JC > 진주JC > 옥곡IC > 여수",
-    },
-    {
-      from: "목포",
-      to: "여수",
-      time: "목포시청 출발 기준 약 1시간 30분",
-      route: "목포 > 죽림JC > 도룡IC > 여수",
+      to: "aT센터",
+      time: "총 소요시간 : 약 4시간 40분",
+      route:
+        "남해고속도로 → 경부고속도로 → 중부내륙고속도로 → 영동고속도로 → 경부고속도로 → 양재 IC → 염곡사거리 → aT센터",
     },
   ];
 
@@ -154,56 +201,80 @@ function CarPanel() {
   );
 }
 
-function TrainPanel() {
-  const rowsA: RouteRow[] = [
-    { from: "서울역+용산역", to: "여수", time: "2시간 50분(KTX)" },
-    { from: "수서", to: "여수", time: "3시간 15분(SRT)" },
-    { from: "대전권", to: "여수", time: "2시간 40분(ITX)" },
-    { from: "전주권", to: "여수", time: "1시간 30분(KTX)" },
-  ];
+// function TrainPanel() {
+//   const rowsA: RouteRow[] = [
+//     { from: "서울역+용산역", to: "여수", time: "2시간 50분(KTX)" },
+//     { from: "수서", to: "여수", time: "3시간 15분(SRT)" },
+//     { from: "대전권", to: "여수", time: "2시간 40분(ITX)" },
+//     { from: "전주권", to: "여수", time: "1시간 30분(KTX)" },
+//   ];
 
+//   return (
+//     // 모바일: 세로, md 이상: 10칸 그리드에서 각 섹션을 2:8로 배치
+//     <div className="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+//       {/* --- 1행: 기차편으로 오실 때 (2:8) --- */}
+//       <strong className="block text-xl md:col-span-2 md:pr-4">
+//         기차편으로
+//         <br className="hidden sm:block" />
+//         오실 때
+//       </strong>
+//       <div className="md:col-span-8">
+//         <ul className="mt-3 space-y-3 md:mt-0">
+//           {rowsA.map((r) => (
+//             <RouteCard key={r.from} row={r} />
+//           ))}
+//         </ul>
+
+//         {/* 필요 시 기차 예약 버튼은 1행의 내용 끝에 유지 */}
+//         <div className="mt-4 flex flex-wrap gap-2">
+//           <PillButton href="http://www.letskorail.com/">
+//             KTX 예약하기
+//           </PillButton>
+//           <PillButton href="https://etk.srail.co.kr/main.do">
+//             SRT 예약하기
+//           </PillButton>
+//         </div>
+//       </div>
+
+//       {/* --- 2행: 여수 엑스포역에서 오실 때 (2:8) --- */}
+//       <strong className="mt-6 block text-xl md:col-span-2 md:mt-6 md:pr-4">
+//         여수 엑스포역에서
+//         <br className="hidden sm:block" />
+//         오실 때
+//       </strong>
+//       <div className="md:col-span-8">
+//         <ul className="mt-3 space-y-3 md:mt-0 ">
+//           <RouteCard
+//             row={{
+//               from: "여수 엑스포역",
+//               to: "여수 베네치아 호텔&스위트",
+//               time:
+//                 "버스 \n - 약 10분 소요 1,300원/인 오동도방면 정류장 2번 버스 탑승 → 박람회장 정류장 895 하차\n\n" +
+//                 "택시 \n - 약 2분 소요 약 2,800원",
+//             }}
+//           />
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+function SubwayPanel() {
   return (
-    // 모바일: 세로, md 이상: 10칸 그리드에서 각 섹션을 2:8로 배치
     <div className="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-      {/* --- 1행: 기차편으로 오실 때 (2:8) --- */}
       <strong className="block text-xl md:col-span-2 md:pr-4">
-        기차편으로
+        지하철편으로
         <br className="hidden sm:block" />
         오실 때
       </strong>
+
       <div className="md:col-span-8">
         <ul className="mt-3 space-y-3 md:mt-0">
-          {rowsA.map((r) => (
-            <RouteCard key={r.from} row={r} />
-          ))}
-        </ul>
-
-        {/* 필요 시 기차 예약 버튼은 1행의 내용 끝에 유지 */}
-        <div className="mt-4 flex flex-wrap gap-2">
-          <PillButton href="http://www.letskorail.com/">
-            KTX 예약하기
-          </PillButton>
-          <PillButton href="https://etk.srail.co.kr/main.do">
-            SRT 예약하기
-          </PillButton>
-        </div>
-      </div>
-
-      {/* --- 2행: 여수 엑스포역에서 오실 때 (2:8) --- */}
-      <strong className="mt-6 block text-xl md:col-span-2 md:mt-6 md:pr-4">
-        여수 엑스포역에서
-        <br className="hidden sm:block" />
-        오실 때
-      </strong>
-      <div className="md:col-span-8">
-        <ul className="mt-3 space-y-3 md:mt-0 ">
           <RouteCard
             row={{
-              from: "여수 엑스포역",
-              to: "여수 베네치아 호텔&스위트",
-              time:
-                "버스 \n - 약 10분 소요 1,300원/인 오동도방면 정류장 2번 버스 탑승 → 박람회장 정류장 895 하차\n\n" +
-                "택시 \n - 약 2분 소요 약 2,800원",
+              from: "신분당선 “양재시민의 숲”역 > 4번출구",
+              to: "aT센터",
+              time: "신분당선 “양재시민의 숲”역에서 하차 후 4번 출구로 나오셔서, 약 50m 직진하면 aT센터",
             }}
           />
         </ul>
@@ -212,42 +283,63 @@ function TrainPanel() {
   );
 }
 
-function AirPanel() {
-  const rows: RouteRow[] = [
-    { from: "김포", to: "여수", time: "약 55분" },
-    { from: "제주", to: "여수", time: "약 45분" },
-    {
-      from: "여수공항",
-      to: "여수 베네치아 호텔&스위트",
-      time:
-        `버스 \n - 약 60분소요 시내버스 32,33,35번 > "시외버스터미널" 하차 > 333번 시내버스 환승 > 박람회장(한화아쿠아리움) 정류장에서 하차\n\n` +
-        `약 40분 소요 공항버스 탑승 > "이순신광장"에서 하차 > 2번 시내버스 환승 > 박람회장(한화아쿠아리움) 정류장에서 하차\n\n` +
-        "택시 \n - 약 18분 소요 약 17,000원\n\n",
-    },
-  ];
+// function AirPanel() {
+//   const rows: RouteRow[] = [
+//     { from: "김포", to: "여수", time: "약 55분" },
+//     { from: "제주", to: "여수", time: "약 45분" },
+//     {
+//       from: "여수공항",
+//       to: "여수 베네치아 호텔&스위트",
+//       time:
+//         `버스 \n - 약 60분소요 시내버스 32,33,35번 > "시외버스터미널" 하차 > 333번 시내버스 환승 > 박람회장(한화아쿠아리움) 정류장에서 하차\n\n` +
+//         `약 40분 소요 공항버스 탑승 > "이순신광장"에서 하차 > 2번 시내버스 환승 > 박람회장(한화아쿠아리움) 정류장에서 하차\n\n` +
+//         "택시 \n - 약 18분 소요 약 17,000원\n\n",
+//     },
+//   ];
 
+//   return (
+//     <div className="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+//       <strong className="block text-xl md:col-span-2 md:pr-4">
+//         항공편으로
+//         <br className="hidden sm:block" />
+//         오실 때
+//       </strong>
+
+//       <div className="md:col-span-8">
+//         <ul className="mt-3 space-y-3 md:mt-0">
+//           {rows.map((r) => (
+//             <RouteCard key={r.from} row={r} />
+//           ))}
+//         </ul>
+
+//         <div className="mt-4 flex flex-wrap gap-2">
+//           <PillButton href="https://kr.koreanair.com/korea/ko.html">
+//             대한항공
+//           </PillButton>
+//           <PillButton href="https://flyasiana.com/">아시아나</PillButton>
+//           <PillButton href="https://www.jinair.com/">진에어</PillButton>
+//           <PillButton href="https://www.jejuair.net/">제주에어</PillButton>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+function EtcPanel() {
   return (
     <div className="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-      <strong className="block text-lg md:col-span-2 md:pr-4">
-        항공편으로
-        <br className="hidden sm:block" />
-        오실 때
-      </strong>
+      <strong className="block text-xl md:col-span-2 md:pr-4">기타</strong>
 
       <div className="md:col-span-8">
-        <ul className="mt-3 space-y-3 md:mt-0">
-          {rows.map((r) => (
-            <RouteCard key={r.from} row={r} />
-          ))}
-        </ul>
+        <p className="rounded-lg border bg-gray-50 p-4 text-sm md:text-base text-gray-800">
+          버스 및 기타 교통편의 자세한 안내는 aT센터 공식 홈페이지에서 확인하실
+          수 있습니다.
+        </p>
 
         <div className="mt-4 flex flex-wrap gap-2">
-          <PillButton href="https://kr.koreanair.com/korea/ko.html">
-            대한항공
+          <PillButton href="https://www.at.or.kr/contents/acko331300/view.action">
+            안내 페이지 바로가기
           </PillButton>
-          <PillButton href="https://flyasiana.com/">아시아나</PillButton>
-          <PillButton href="https://www.jinair.com/">진에어</PillButton>
-          <PillButton href="https://www.jejuair.net/">제주에어</PillButton>
         </div>
       </div>
     </div>
@@ -273,7 +365,7 @@ function RouteCard({
         <dt
           className={clsx(
             "mb-1 flex items-center gap-2 font-bold text-sm md:text-xl",
-            dtClassName
+            dtClassName,
           )}
         >
           <Badge type="from">{row.from}</Badge>

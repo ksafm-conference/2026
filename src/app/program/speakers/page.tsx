@@ -17,8 +17,8 @@ function groupByField(list: AnySpeaker[]) {
     const fields: string[] = Array.isArray((sp as any).fields)
       ? ((sp as any).fields as string[])
       : typeof (sp as any).field === "string" && (sp as any).field.trim().length
-      ? [(sp as any).field as string]
-      : [];
+        ? [(sp as any).field as string]
+        : [];
 
     const buckets = fields.length ? fields : [FALLBACK];
     for (const f of buckets) {
@@ -68,7 +68,7 @@ export default function Page() {
         초청 연사 (Speakers)
       </h1> */}
 
-      {false ? (
+      {true ? (
         <ComingSoon />
       ) : (
         <>

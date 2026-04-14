@@ -1,6 +1,7 @@
 // FILE: src/app/about/notice/page.tsx
 import Link from "next/link";
 import NoticeBoard from "@/components/about/NoticeBoard";
+import ComingSoon from "@/components/ComingSoon";
 
 export default function Page() {
   return (
@@ -21,6 +22,7 @@ export default function Page() {
           <li aria-current="page" className="font-medium text-indigo-500">
             공지사항
           </li>
+          <ComingSoon />
         </ol>
       </nav>
 

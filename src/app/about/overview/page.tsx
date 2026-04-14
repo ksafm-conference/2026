@@ -40,17 +40,17 @@ export default function Page() {
         </SectionTitle>
         <ul className="list-none space-y-2 text-lg text-gray-800">
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            여수베네치아호텔앤스위트
+            양재 aT센터 (서울 서초구 강남대로 27 , 1층)
           </li>
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
             웹사이트:{" "}
             <a
-              href="https://www.yeosuvenezia.com/"
+              href="https://www.at.or.kr/home/acko000000/index.action"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline underline-offset-2"
             >
-              https://www.yeosuvenezia.com/
+              aT센터 홈페이지
             </a>
           </li>
         </ul>
@@ -61,9 +61,7 @@ export default function Page() {
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
           주제
         </SectionTitle>
-        <p className="text-gray-800 text-lg">
-          2025 한국 기후위기 종합 평가와 농림기상 미래전략
-        </p>
+        <p className="text-gray-800 text-lg">추후 공지</p>
       </section>
 
       {/* 주요 일정 */}
@@ -72,7 +70,7 @@ export default function Page() {
           주요 일정
         </SectionTitle>
         <ul className="list-none space-y-2 text-lg text-gray-800">
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-'] line-through text-gray-500">
+          {/* <li className="relative pl-4 before:absolute before:left-0 before:content-['-'] line-through text-gray-500">
             초록제출 마감(1차): 2025년 11월 14일
           </li>
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-'] line-through text-gray-500">
@@ -80,9 +78,9 @@ export default function Page() {
           </li>
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
             온라인 등록기간: 2025년 12월 03일 까지
-          </li>
+          </li> */}
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            행사 기간: 2025년 12월 04-05일 (1박 2일)
+            행사 기간: 2026년 6월 22-23일 (월-화, 1박 2일)
           </li>
         </ul>
       </section>

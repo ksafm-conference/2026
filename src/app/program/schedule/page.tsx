@@ -172,6 +172,7 @@ export default function Page() {
       // ignore
     }
   };
+  const currentImage = lightboxIdx !== null ? images[lightboxIdx] : null;
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
@@ -194,7 +195,7 @@ export default function Page() {
         </ol>
       </nav>
 
-      {0 ? (
+      {true ? (
         <ComingSoon />
       ) : (
         <>
@@ -295,17 +296,19 @@ export default function Page() {
                         : undefined,
                     }}
                   >
-                    <img
-                      ref={imgRef}
-                      src={images[lightboxIdx].src}
-                      alt={images[lightboxIdx].alt}
-                      className="block h-auto w-full select-none"
-                      draggable={false}
-                      onLoad={handleImgLoaded}
-                      onClick={() => {
-                        if (!movedRef.current) setZoomed((z) => !z);
-                      }}
-                    />
+                    {currentImage && (
+                      <img
+                        ref={imgRef}
+                        src={currentImage?.src}
+                        alt={currentImage?.alt}
+                        className="block h-auto w-full select-none"
+                        draggable={false}
+                        onLoad={handleImgLoaded}
+                        onClick={() => {
+                          if (!movedRef.current) setZoomed((z) => !z);
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
