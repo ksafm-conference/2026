@@ -22,17 +22,24 @@ export default function Page() {
     external?: boolean;
     color: "blue" | "emerald" | "amber";
   }[] = [
-    { label: "프로그램", href: "/program/schedule", color: "blue" },
     {
-      label: "참가등록",
-      href: externalLinks.registration,
-      external: true,
+      label: "프로그램\n(준비중)",
+      href: "/program/schedule",
+      external: false,
+      color: "blue",
+    },
+    {
+      label: "참가등록\n(준비중)",
+      href: "./",
+      // href: externalLinks.registration,
+      external: false,
       color: "emerald",
     },
     {
-      label: "초록제출",
-      href: externalLinks.submission,
-      external: true,
+      label: "초록제출\n(준비중)",
+      href: "./",
+      // href: externalLinks.submission,
+      external: false,
       color: "amber",
     },
   ];
@@ -134,7 +141,7 @@ export default function Page() {
                       "focus-visible:outline-none focus-visible:ring-4",
                     ].join(" ")}
                   >
-                    <span>{btn.label}</span>
+                    <span className="whitespace-pre-line">{btn.label}</span>
                     <ChevronRight
                       className="h-5 w-5 opacity-90"
                       aria-hidden="true"
