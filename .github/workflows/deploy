@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches:
@@ -18,7 +21,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Environment secrets를 쓰고 있다면 아래 줄 필수
     environment: github-pages
 
     steps:
@@ -26,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - run: npm ci
@@ -34,7 +36,6 @@ jobs:
       - name: Set env
         run: |
           echo "GITHUB_PAGES=true" >> $GITHUB_ENV
-          # Environment secrets 또는 Repository secrets 중 사용하는 쪽에 이름 맞추기
           echo "NEXT_PUBLIC_KAKAO_APP_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_APP_KEY }}" >> $GITHUB_ENV
 
       - name: Build (static)
