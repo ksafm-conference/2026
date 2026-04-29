@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import LocationMap from "@/app/contact/LocationMap";
 import SectionTitle from "@/components/SectionTitle";
 import { ICON_IMAGE } from "@/data/source_path";
 import Access from "./Access";
 import { MapPinHouse, Phone } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: pageSeo.contact.title,
+  description: pageSeo.contact.description,
+};
+
 export default function Page() {
   // 문의 정보 (필요하면 바꿔 넣기)
   const ORG = {

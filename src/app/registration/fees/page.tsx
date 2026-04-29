@@ -1,22 +1,16 @@
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
 import { ICON_IMAGE } from "@/data/source_path";
+import { registrationFees, paymentMethods, refundPolicy } from "@/data/fees";
+
+export const metadata: Metadata = {
+  title: pageSeo.fees.title,
+  description: pageSeo.fees.description,
+};
 
 export default function Page() {
-  const rows = [
-    { type: "학술대회 참가비 (필수)", amount: "(KRW) 150,000 원", note: "-" },
-    {
-      type: "초록제출 (1편 당)",
-      amount: "(KRW) 20,000 원",
-      note: "-",
-    },
-    // {
-    //   type: "국립여수해양기상과학관 투어",
-    //   amount: "무료",
-    //   note: "점심 제공",
-    // },
-  ];
-
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
       {/* breadcrumb */}
@@ -34,8 +28,6 @@ export default function Page() {
         </ol>
       </nav>
 
-      {/* <h1 className='mb-2 text-2xl font-bold md:text-3xl'>참가 등록</h1> */}
-
       <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
           등록비
@@ -50,7 +42,7 @@ export default function Page() {
               </tr>
             </thead>
             <tbody>
-              {rows.length === 0 ? (
+              {registrationFees.length === 0 ? (
                 <tr>
                   <td
                     colSpan={3}
@@ -60,7 +52,7 @@ export default function Page() {
                   </td>
                 </tr>
               ) : (
-                rows.map((r) => (
+                registrationFees.map((r) => (
                   <tr key={r.type} className="odd:bg-white even:bg-gray-50">
                     <td className="px-4 py-2">{r.type}</td>
                     <td className="px-4 py-2">{r.amount}</td>
@@ -79,16 +71,11 @@ export default function Page() {
           결제 방법{" "}
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-lg text-gray-900">
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            학술대회 참가비에는 초록제출비가 포함되어 있지 않습니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            {/* 온라인 결제는 12월 03일까지 가능합니다. */}
-            온라인 결제는 곧 추가될 예정입니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            학술대회 당일 오프라인 현장결제 가능합니다.
-          </li>
+          {paymentMethods.map((method, index) => (
+            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+              {method}
+            </li>
+          ))}
         </ul>
       </section>
 
@@ -98,24 +85,29 @@ export default function Page() {
           취소 및 환불정책
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-lg text-gray-900">
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            등록 취소 및 환불은 이메일
-            <a
-              href="mailto:ksafm2@gmail.com"
-              className="underline underline-offset-2 text-blue-600 hover:text-blue-700"
-            >
-              (ksafm1@gmail.com)
-            </a>
-            으로 문의주시기 바랍니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            환불은 행사 종료 후에 처리됩니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            등록 취소 및 환불기간은 아래의 내용 참고 부탁드립니다.
-          </li>
-          <li className="relative pl-10">2026년 6월 22일 이전: 전액 환불</li>
-          <li className="relative pl-10">2026년 6월 22일 이후: 문의 요망</li>
+          {refundPolicy.policies.map((policy, index) => (
+            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+              {policy.includes("이메일") ? (
+                <>
+                  {policy.split("이메일")[0]}이메일
+                  <a
+                    href={`mailto:${refundPolicy.contactEmail}`}
+                    className="underline underline-offset-2 text-blue-600 hover:text-blue-700"
+                  >
+                    ({refundPolicy.contactEmail})
+                  </a>
+                  {policy.split("이메일")[1]}
+                </>
+              ) : (
+                policy
+              )}
+            </li>
+          ))}
+          {refundPolicy.dates.map((date, index) => (
+            <li key={index} className="relative pl-10">
+              {date.label}: {date.content}
+            </li>
+          ))}
         </ul>
       </section>
     </main>

@@ -1,10 +1,18 @@
-// FILE: src/app/submission/page.tsx
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import Link from "next/link";
 import { ExternalLink, Download, Info } from "lucide-react";
 import { externalLinks } from "@/data/nav";
 import SectionTitle from "@/components/SectionTitle";
 import { ICON_IMAGE, TEMPLATE_DOC } from "@/data/source_path";
 import { asset } from "@/lib/paths";
+import { submissionData } from "@/data/submission";
+
+export const metadata: Metadata = {
+  title: pageSeo.submission.title,
+  description: pageSeo.submission.description,
+};
+
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
@@ -26,74 +34,53 @@ export default function Page() {
       {/* 초록 제출*/}
       <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          초록 제출
+          {submissionData.generalInfo.title}
         </SectionTitle>
 
         <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            초록은 마감일을 확인하신 후 기한 내 제출해 주시기 바랍니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            학술대회에서는 초록의 첫 번째 저자가 발표하는 것이 원칙입니다.
-            <br />
-            (※ 부득이한 경우 공동저자 중 한 명이 발표 가능합니다.)
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            학술대회 등록 1회로 최대 3편의 초록을 제출 및 발표하실 수 있으며,
-            4편 이상 등록을 원하실 경우 추가 등록이 필요합니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            여러 편의 초록 등록 시, 첫 번째 저자가 다른 경우에는 저자별로 각각
-            등록해야 합니다.
-          </li>
+          {submissionData.generalInfo.items.map((item, index) => (
+            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+              {item}
+            </li>
+          ))}
         </ul>
       </section>
 
       {/* 발표 분야 안내*/}
       <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          발표 분야 안내
+          {submissionData.fields.title}
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            주제: 추후 공지
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            분야: 추후 공지
-            {/* 분야: 경지미기후, 국지기후, 농업기후개조, 산림기상, 식물병해충,
-            환경계측, 생태모형, 영농활용, 수문기상, 농업원격탐사 등 */}
-          </li>
+          {submissionData.fields.items.map((item, index) => (
+            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+              {item.label}: {item.content}
+            </li>
+          ))}
         </ul>
       </section>
 
       {/* 제출 절차 */}
       <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          초록 제출 절차
+          {submissionData.procedure.title}
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            초록 제출 정보 및 프레젠테이션 가이드라인을 확인합니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            초록 제출 웹페이지로 이동하여 계정을 생성합니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            제출 양식에 맞게 정보를 입력하고 초록 파일을 업로드합니다.
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            제출 후 확인 이메일을 받습니다.
-          </li>
+          {submissionData.procedure.items.map((item, index) => (
+            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+              {item}
+            </li>
+          ))}
         </ul>
       </section>
 
       {/* 액션 버튼: 양식 다운로드 / 제출 바로가기 */}
       <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          초록 제출 양식
+          {submissionData.format.title}
         </SectionTitle>
         <div className="flex flex-wrap gap-2">
-          추후 공지
+          {submissionData.format.content}
           {/* 양식 다운로드 (hwp) */}
           {/*           
           <a

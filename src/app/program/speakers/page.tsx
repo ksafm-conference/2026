@@ -1,4 +1,5 @@
-// FILE: src/app/speakers/page.tsx
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import Link from "next/link";
 import { Mail, Building2 } from "lucide-react";
 import { SPEAKERS, type Speaker } from "@/data/program";
@@ -6,6 +7,12 @@ import SectionTitle from "@/components/SectionTitle";
 import { ICON_IMAGE } from "@/data/source_path";
 import ComingSoon from "@/components/ComingSoon";
 import { asset } from "@/lib/paths";
+
+export const metadata: Metadata = {
+  title: pageSeo.speakers.title,
+  description: pageSeo.speakers.description,
+};
+
 type AnySpeaker = (typeof SPEAKERS)[number];
 
 // 연사 배열 -> { 분야명: 연사[] } 로 그룹핑 (field | fields 둘 다 지원)

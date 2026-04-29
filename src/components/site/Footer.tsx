@@ -1,6 +1,7 @@
 // FILE: src/components/site/Footer.tsx
 import Link from "next/link";
 import { nav, externalLinks } from "@/data/nav";
+import { footerData } from "@/data/footer";
 
 export default function Footer() {
   const about = nav.find((n) => !("href" in n) && n.label.includes("학술대회"));
@@ -15,11 +16,11 @@ export default function Footer() {
   );
   const venue = nav.find((n) => "href" in n && n.label.includes("오시는 길"));
 
-  // 줄바꿈 그대로 + 가운데 정렬
-  const societyInfo = `(사단법인) 한국농림기상학회
-  Korean Society of Agricultural and Forest Meteorology
-대표자: 심교문 | 주소: (08826) 서울특별시 관악구 관악로 1 서울대학교 36동 108호
-사업자번호 : 135-82-07829 | 전화 : 070-4417-7125 | 이메일 : ksafm1@gmail.com`;
+  // 데이터 기반 정보 구성
+  const societyInfo = `${footerData.legalName}
+${footerData.societyEn}
+대표자: ${footerData.representative} | 주소: ${footerData.address}
+사업자번호 : ${footerData.businessNo} | 전화 : ${footerData.phone} | 이메일 : ${footerData.email}`;
 
   return (
     <footer className="mt-10 border-t bg-gray-50">

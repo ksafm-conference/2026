@@ -1,7 +1,13 @@
-// FILE: src/app/about/notice/page.tsx
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import Link from "next/link";
 import NoticeBoard from "@/components/about/NoticeBoard";
 import ComingSoon from "@/components/ComingSoon";
+
+export const metadata: Metadata = {
+  title: pageSeo.notice.title,
+  description: pageSeo.notice.description,
+};
 
 export default function Page() {
   return (
@@ -22,8 +28,8 @@ export default function Page() {
           <li aria-current="page" className="font-medium text-indigo-500">
             공지사항
           </li>
-          <ComingSoon />
         </ol>
+        <ComingSoon />
       </nav>
 
       {/* ✅ 카드형 공지 섹션 */}

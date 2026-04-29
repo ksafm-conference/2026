@@ -1,9 +1,12 @@
-// =====================================
-// FILE: src/app/exhibition/page.tsx
-// 전시/협찬 안내 (root: /exhibition)
-// =====================================
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: pageSeo.sponsorship.title,
+  description: pageSeo.sponsorship.description,
+};
 
 // 운영/문의: 학회 공식 연락처 (사용자가 제공한 정보)
 const CONTACT = {

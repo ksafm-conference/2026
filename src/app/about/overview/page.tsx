@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import Link from "next/link";
-import { Calendar, MapPin, Building2 } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import { ICON_IMAGE } from "@/data/source_path";
+import { overviewData } from "@/data/overview";
+
+export const metadata: Metadata = {
+  title: pageSeo.overview.title,
+  description: pageSeo.overview.description,
+};
 
 export default function Page() {
   return (
@@ -28,29 +35,31 @@ export default function Page() {
       {/* 주최/주관 */}
       <section className="mb-8 rounded-2xl border bg-white p-5 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          주최/주관
+          {overviewData.organizer.title}
         </SectionTitle>
-        <p className="text-gray-800 text-lg">- 한국농림기상학회</p>
+        <p className="text-gray-800 text-lg">- {overviewData.organizer.content}</p>
       </section>
 
       {/* 행사 장소 */}
       <section className="mb-8 rounded-2xl border bg-white p-5 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          행사 장소
+          {overviewData.location.title}
         </SectionTitle>
         <ul className="list-none space-y-2 text-lg text-gray-800">
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            양재 aT센터 (서울 서초구 강남대로 27 , 1층)
-          </li>
+          {overviewData.location.items.map((item, index) => (
+            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+              {item}
+            </li>
+          ))}
           <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
             웹사이트:{" "}
             <a
-              href="https://www.at.or.kr/home/acko000000/index.action"
+              href={overviewData.location.website.url}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline underline-offset-2"
             >
-              aT센터 홈페이지
+              {overviewData.location.website.label}
             </a>
           </li>
         </ul>
@@ -59,29 +68,22 @@ export default function Page() {
       {/* 주제 */}
       <section className="mb-8 rounded-2xl border bg-white p-5 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          주제
+          {overviewData.theme.title}
         </SectionTitle>
-        <p className="text-gray-800 text-lg">추후 공지</p>
+        <p className="text-gray-800 text-lg">{overviewData.theme.content}</p>
       </section>
 
       {/* 주요 일정 */}
       <section className="rounded-2xl border bg-white p-5 shadow-sm">
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          주요 일정
+          {overviewData.schedule.title}
         </SectionTitle>
         <ul className="list-none space-y-2 text-lg text-gray-800">
-          {/* <li className="relative pl-4 before:absolute before:left-0 before:content-['-'] line-through text-gray-500">
-            초록제출 마감(1차): 2025년 11월 14일
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-'] line-through text-gray-500">
-            초록제출 최종마감 : 2025년 11월 21일
-          </li>
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            온라인 등록기간: 2025년 12월 03일 까지
-          </li> */}
-          <li className="relative pl-4 before:absolute before:left-0 before:content-['-']">
-            행사 기간: 2026년 6월 22-23일 (월-화, 1박 2일)
-          </li>
+          {overviewData.schedule.items.map((item, index) => (
+            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+              {item.label}: {item.date}
+            </li>
+          ))}
         </ul>
       </section>
     </main>

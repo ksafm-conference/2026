@@ -1,5 +1,6 @@
 // FILE: src/app/page.tsx
 import Link from "next/link";
+import Image from "next/image";
 import {
   Calendar,
   MapPin,
@@ -14,36 +15,15 @@ import { externalLinks } from "@/data/nav";
 import { home } from "@/data/home";
 import { getHomeNotices } from "@/data/notices";
 import { asset } from "@/lib/paths";
-export default function Page() {
-  // 메인 CTA 3개 정의
-  const ctas: {
-    label: string;
-    href: string;
-    external?: boolean;
-    color: "blue" | "emerald" | "amber";
-  }[] = [
-    {
-      label: "프로그램\n(준비중)",
-      href: "/program/schedule",
-      external: false,
-      color: "blue",
-    },
-    {
-      label: "참가등록\n(준비중)",
-      href: "./",
-      // href: externalLinks.registration,
-      external: false,
-      color: "emerald",
-    },
-    {
-      label: "초록제출\n(준비중)",
-      href: "./",
-      // href: externalLinks.submission,
-      external: false,
-      color: "amber",
-    },
-  ];
+import { pageSeo } from "@/data/seo";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: pageSeo.home.title,
+  description: pageSeo.home.description,
+};
+
+export default function Page() {
   // 색상 테마 매핑
   const theme = {
     blue: {
@@ -73,9 +53,9 @@ export default function Page() {
   } as const;
 
   return (
-    <main>
+    <main className="min-h-[80vh]">
       {/* Hero (상단 배너) */}
-      <section className="border-b bg-white">
+      <section className="border-b bg-white min-h-[400px] flex items-center">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-10 md:grid-cols-2">
           <div>
             <div>
@@ -86,20 +66,21 @@ export default function Page() {
                 {home.title}
               </h1>
             </div>
-            <p className="h-full space-y-3 mb-6 text-[15px] leading-relaxed text-gray-900 md:text-lg ">
-              주제: {home.theme}
-              <br />
-              <span className="inline-flex items-center gap-2 text-gray-800">
-                일시: {home.dateText}
-              </span>
-              <br />
-              <span className="inline-flex items-center gap-2 text-gray-800">
-                장소: {home.venueText}
-              </span>
-              <br />
-              {home.sponsorship && home.sponsorship.length > 0 && (
+            <div className="h-full space-y-3 mb-6 text-[15px] leading-relaxed text-gray-900 md:text-lg ">
+              <p>주제: {home.theme}</p>
+              <p>
                 <span className="inline-flex items-center gap-2 text-gray-800">
-                  후원:{" "}
+                  일시: {home.dateText}
+                </span>
+              </p>
+              <p>
+                <span className="inline-flex items-center gap-2 text-gray-800">
+                  장소: {home.venueText}
+                </span>
+              </p>
+              {home.sponsorship && home.sponsorship.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 text-gray-800">
+                  <span>후원:</span>
                   {home.sponsorship.map(
                     (s: { url: string; logo: string; name?: string }) => (
                       <a
@@ -109,22 +90,25 @@ export default function Page() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center"
                       >
-                        <img
+                        <Image
                           src={asset(s.logo)}
                           alt={s.name ?? "sponsorship logo"}
-                          className="h-7 w-auto md:h-8"
+                          width={100}
+                          height={40}
+                          className="h-7 w-auto md:h-8 object-contain"
+                          unoptimized
                         />
                       </a>
                     ),
                   )}
-                </span>
+                </div>
               )}
-            </p>
+            </div>
 
             {/* ▶ 메인 CTA 버튼 3개 (프로그램 / 참가등록 / 초록제출) */}
             <div className="grid gap-2 grid-cols-2 lg:grid-cols-3">
-              {ctas.map((btn) => {
-                const t = theme[btn.color];
+              {home.ctas.map((btn) => {
+                const t = theme[btn.color as keyof typeof theme];
                 const inner = (
                   <span
                     className={[
@@ -156,6 +140,7 @@ export default function Page() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${btn.label} 바로가기`}
+                    className="block"
                   >
                     {inner}
                   </a>

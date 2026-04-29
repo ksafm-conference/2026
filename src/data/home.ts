@@ -18,4 +18,25 @@ export const home = {
     { date: "추후 공지", label: "온라인 등록기간" },
     { date: "2026년 6월 22~23일 (월-화, 1박 2일)", label: "행사 기간" },
   ],
+
+  ctas: [
+    {
+      label: "프로그램\n(준비중)",
+      href: "/program/schedule",
+      external: false,
+      color: "blue",
+    },
+    {
+      label: "참가등록\n(준비중)",
+      href: "./",
+      external: false,
+      color: "emerald",
+    },
+    {
+      label: "초록제출\n(준비중)",
+      href: "./",
+      external: false,
+      color: "amber",
+    },
+  ] as const,
 };

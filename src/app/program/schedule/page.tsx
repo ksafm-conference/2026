@@ -1,7 +1,10 @@
 // FILE: src/app/program/schedule/page.tsx
 "use client";
 
+import type { Metadata } from "next";
+import { pageSeo } from "@/data/seo";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { X, ZoomIn, ZoomOut } from "lucide-react";
 import { asset } from "@/lib/paths";
@@ -207,7 +210,8 @@ export default function Page() {
               >
                 <button
                   type="button"
-                  className="block md:w-full cursor-zoom-in"
+                  className="relative block w-full overflow-hidden rounded-lg cursor-zoom-in"
+                  style={{ aspectRatio: '16/9' }} // 비율 미리 확보 (CLS 방지)
                   onClick={() => {
                     setLightboxIdx(i);
                     // 처음 열 때는 항상 "기본 배율" 상태
@@ -215,11 +219,12 @@ export default function Page() {
                   }}
                   aria-label={`${img.alt} 확대 보기`}
                 >
-                  <img
+                  <Image
                     src={img.src}
                     alt={img.alt}
-                    className="h-auto w-auto rounded-lg"
-                    loading="lazy"
+                    fill
+                    className="object-contain"
+                    unoptimized
                   />
                 </button>
                 {img.caption && (
