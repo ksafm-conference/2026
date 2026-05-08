@@ -26,6 +26,6 @@ export const submissionData = {
   },
   format: {
     title: "초록 제출 양식",
-    content: "추후 공지",
+    content: "아래 양식을 다운로드하여 작성해 주시기 바랍니다.",
   },
 };

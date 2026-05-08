@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { pageSeo } from "@/data/seo";
 import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
-import { ICON_IMAGE } from "@/data/source_path";
+import { ICON_IMAGE, TEMPLATE_DOC } from "@/data/source_path";
 import { submissionData } from "@/data/submission";
+import { asset } from "@/lib/paths";
+import { externalLinks } from "@/data/nav";
+import { Download, ExternalLink, Info } from "lucide-react";
 
 export const metadata: Metadata = {
   title: pageSeo.submission.title,
@@ -36,7 +39,10 @@ export default function Page() {
 
         <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
           {submissionData.generalInfo.items.map((item, index) => (
-            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+            <li
+              key={index}
+              className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+            >
               {item}
             </li>
           ))}
@@ -50,7 +56,10 @@ export default function Page() {
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
           {submissionData.fields.items.map((item, index) => (
-            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+            <li
+              key={index}
+              className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+            >
               {item.label}: {item.content}
             </li>
           ))}
@@ -64,7 +73,10 @@ export default function Page() {
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
           {submissionData.procedure.items.map((item, index) => (
-            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+            <li
+              key={index}
+              className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+            >
               {item}
             </li>
           ))}
@@ -76,10 +88,12 @@ export default function Page() {
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
           {submissionData.format.title}
         </SectionTitle>
-        <div className="flex flex-wrap gap-2">
+        <p className="mb-4 text-sm md:text-lg text-gray-900">
           {submissionData.format.content}
+        </p>
+        <div className="flex flex-wrap gap-2">
           {/* 양식 다운로드 (hwp) */}
-          {/*           
+
           <a
             href={asset(TEMPLATE_DOC)}
             download
@@ -88,9 +102,9 @@ export default function Page() {
           >
             <Download className="h-4 w-4" />
             초록 양식 다운로드
-          </a> */}
+          </a>
           {/* 제출 페이지 이동 */}
-          {/* 
+
           <a
             href={externalLinks.submission}
             target="_blank"
@@ -99,15 +113,18 @@ export default function Page() {
           >
             초록 제출
             <ExternalLink className="h-4 w-4" />
-          </a> */}
+          </a>
         </div>
 
         {/* 안내 박스 */}
-        {/* <div className='mt-4 flex items-start gap-2 rounded-lg bg-indigo-50/70 p-3 text-[13px] text-indigo-900'>
-          <Info className='mt-0.5 h-4 w-4 shrink-0' />
+        {/* <div className="mt-4 flex items-start gap-2 rounded-lg bg-indigo-50/70 p-3 text-[13px] text-indigo-900">
+          <Info className="mt-0.5 h-4 w-4 shrink-0" />
           <p>
-            템플릿에 맞춰 작성 후 <strong>HWP</strong> 파일로 업로드하세요. 파일명 예:{' '}
-            <code className='rounded bg-white/70 px-1'>KSAFM_2025_홍길동.hwp</code>
+            템플릿에 맞춰 작성 후 <strong>HWP</strong> 파일로 업로드하세요.
+            파일명 예:{" "}
+            <code className="rounded bg-white/70 px-1">
+              KSAFM_2026_홍길동.hwp
+            </code>
           </p>
         </div> */}
       </section>
