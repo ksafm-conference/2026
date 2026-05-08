@@ -26,14 +26,14 @@ const RECENT_DAYS = 14;
 
 /** 한 곳에서 공지 관리 */
 export const NOTICES: Notice[] = [
-  // {
-  //   title: "2025 동계학술대회 사이트 오픈 및 초록 제출/등록 안내",
-  //   href: "/submission",
-  //   content: "초록 제출/등록 방법 안내 페이지로 이동합니다.",
-  //   date: "2025-10-15",
-  //   showOnHome: true,
-  //   pinHome: true,
-  // },
+  {
+    title: "2026 하계학술대회 사이트 오픈 및 초록 제출/등록 안내",
+    href: "/submission",
+    content: "초록 제출/등록 방법 안내 페이지로 이동합니다.",
+    date: "2026-05-08",
+    showOnHome: true,
+    pinHome: true,
+  },
   // {
   //   href: "/submission/guideline",
   //   title: "발표 진행 안내 (발표 시간, 포스터 부착 위치 등)",
