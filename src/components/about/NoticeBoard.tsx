@@ -3,7 +3,6 @@
 
 import { NOTICES, anchorIdFor } from "@/data/notices";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Megaphone } from "lucide-react";
 import { BASE_PATH } from "@/lib/paths"; // 이전에 만든 basePath 헬퍼: export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function NoticeBoard() {
@@ -123,9 +122,12 @@ function NoticeCard({
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.location.hash === `#${id}`) {
-      setHi(true);
-      const t = setTimeout(() => setHi(false), 1500);
-      return () => clearTimeout(t);
+      const start = window.setTimeout(() => setHi(true), 0);
+      const end = window.setTimeout(() => setHi(false), 1500);
+      return () => {
+        window.clearTimeout(start);
+        window.clearTimeout(end);
+      };
     }
   }, [id]);
 

@@ -3,12 +3,37 @@ import { pageSeo } from "@/data/seo";
 import SectionTitle from "@/components/SectionTitle";
 import Link from "next/link";
 import { ICON_IMAGE } from "@/data/source_path";
-import { registrationFees, paymentMethods, refundPolicy } from "@/data/fees";
+import {
+  registrationFeeNotes,
+  registrationFees,
+  paymentMethods,
+  refundPolicy,
+} from "@/data/fees";
 
 export const metadata: Metadata = {
   title: pageSeo.fees.title,
   description: pageSeo.fees.description,
 };
+
+const registrationNoteHighlights = ["초록 1편", "초록 2편", "초록 3편 이상"];
+
+function renderRegistrationFeeNote(note: string) {
+  const highlight = registrationNoteHighlights.find((phrase) =>
+    note.includes(phrase),
+  );
+
+  if (!highlight) return note;
+
+  const [before, after] = note.split(highlight);
+
+  return (
+    <>
+      {before}
+      <span className="text-blue-600">{highlight}</span>
+      {after}
+    </>
+  );
+}
 
 export default function Page() {
   return (
@@ -32,37 +57,64 @@ export default function Page() {
         <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
           등록비
         </SectionTitle>
-        <div className="overflow-hidden rounded-xl border">
-          <table className="w-full text-center text-sm ">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-2">구분</th>
-                <th className="px-4 py-2">금액</th>
-                <th className="px-4 py-2">비고</th>
+        <div className="overflow-hidden rounded-xl border border-gray-400">
+          <table className="w-full table-fixed border-collapse text-center text-base md:text-lg">
+            <colgroup>
+              <col className="w-[18.18%]" />
+              <col className="w-[45.45%]" />
+              <col className="w-[36.37%]" />
+            </colgroup>
+            <thead>
+              <tr className="bg-[#a6a6a6] text-gray-950">
+                <th
+                  colSpan={2}
+                  className="border border-gray-500 px-4 py-4 text-lg font-semibold md:text-2xl"
+                >
+                  구분
+                </th>
+                <th className="border border-gray-500 px-4 py-4 text-lg font-semibold md:text-2xl">
+                  금액
+                </th>
               </tr>
             </thead>
             <tbody>
-              {registrationFees.length === 0 ? (
-                <tr>
-                  <td
-                    colSpan={3}
-                    className="px-4 py-6 text-center text-gray-500"
-                  >
-                    표 데이터를 채워주세요.
+              <tr className="bg-[#e2f0d9]">
+                <td className="border border-gray-400 px-2 py-5 text-base font-semibold md:text-xl">
+                  {registrationFees[0].group}
+                </td>
+                <td className="border border-gray-400 px-4 py-5 text-base font-semibold md:text-xl">
+                  {registrationFees[0].type}
+                </td>
+                <td className="border border-gray-400 px-4 py-5 text-base font-medium md:text-xl">
+                  {registrationFees[0].amount}
+                </td>
+              </tr>
+              {registrationFees.slice(1).map((fee, index) => (
+                <tr key={fee.type} className="bg-[#ddebf7]">
+                  {index === 0 && (
+                    <td
+                      rowSpan={3}
+                      className="border border-gray-400 px-2 py-5 text-base font-semibold md:text-xl"
+                    >
+                      {fee.group}
+                    </td>
+                  )}
+                  <td className="border border-gray-400 px-4 py-5 text-base font-semibold md:text-xl">
+                    {fee.type}
+                  </td>
+                  <td className="border border-gray-400 px-4 py-5 text-base font-medium md:text-xl">
+                    {fee.amount}
                   </td>
                 </tr>
-              ) : (
-                registrationFees.map((r) => (
-                  <tr key={r.type} className="odd:bg-white even:bg-gray-50">
-                    <td className="px-4 py-2">{r.type}</td>
-                    <td className="px-4 py-2">{r.amount}</td>
-                    <td className="px-4 py-2">{r.note}</td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>
+        <ul className="mt-5 space-y-1 text-base font-semibold leading-relaxed text-gray-950 md:text-lg">
+          {registrationFeeNotes.map((note) => (
+            <li key={note}>※ {renderRegistrationFeeNote(note)}</li>
+          ))}
+        </ul>
       </section>
 
       {/* 결제방법 */}
@@ -72,7 +124,10 @@ export default function Page() {
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-lg text-gray-900">
           {paymentMethods.map((method, index) => (
-            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+            <li
+              key={index}
+              className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+            >
               {method}
             </li>
           ))}
@@ -86,7 +141,10 @@ export default function Page() {
         </SectionTitle>
         <ul className="list-none pl-0 space-y-2 text-lg text-gray-900">
           {refundPolicy.policies.map((policy, index) => (
-            <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+            <li
+              key={index}
+              className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+            >
               {policy.includes("이메일") ? (
                 <>
                   {policy.split("이메일")[0]}이메일

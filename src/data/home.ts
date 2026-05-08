@@ -1,3 +1,5 @@
+import { externalLinks } from "./nav";
+
 export const home = {
   society: "CONFERENCE ON AGRICULTURAL AND FOREST METEOROLOGY",
   title: "2026 한국농림기상학회 하계학술대회",
@@ -21,21 +23,21 @@ export const home = {
 
   ctas: [
     {
-      label: "프로그램\n(준비중)",
+      label: "프로그램",
       href: "/program/schedule",
       external: false,
       color: "blue",
     },
     {
-      label: "참가등록\n(준비중)",
-      href: "./",
-      external: false,
+      label: "참가등록",
+      href: externalLinks.registration,
+      external: true,
       color: "emerald",
     },
     {
-      label: "초록제출\n(준비중)",
-      href: "./",
-      external: false,
+      label: "초록제출",
+      href: externalLinks.submission,
+      external: true,
       color: "amber",
     },
   ] as const,

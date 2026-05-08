@@ -1,30 +1,34 @@
 // FILE: src/app/program/schedule/page.tsx
 "use client";
 
-import type { Metadata } from "next";
-import { pageSeo } from "@/data/seo";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { X, ZoomIn, ZoomOut } from "lucide-react";
 import { asset } from "@/lib/paths";
-import {
-  PROGRAM_IMAGE,
-  PROGRAM_IMAGE_01,
-  PROGRAM_IMAGE_02,
-  PROGRAM_IMAGE_03,
-  PROGRAM_IMAGE_04,
-} from "@/data/source_path";
+import { PROGRAM_IMAGE } from "@/data/source_path";
 import ComingSoon from "@/components/ComingSoon";
+
+function useMediaQuery(query: string) {
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      const media = window.matchMedia(query);
+      media.addEventListener("change", onStoreChange);
+      return () => media.removeEventListener("change", onStoreChange);
+    },
+    () => window.matchMedia(query).matches,
+    () => false,
+  );
+}
 
 export default function Page() {
   // 이미지 파일은 public 경로에 있어야 합니다.
   const images: { src: string; alt: string; caption?: string }[] = [
     { src: asset(PROGRAM_IMAGE), alt: "프로그램" },
-    { src: asset(PROGRAM_IMAGE_01), alt: "프로그램" },
-    { src: asset(PROGRAM_IMAGE_02), alt: "프로그램" },
-    { src: asset(PROGRAM_IMAGE_03), alt: "프로그램" },
-    { src: asset(PROGRAM_IMAGE_04), alt: "프로그램" },
+    // { src: asset(PROGRAM_IMAGE_01), alt: "프로그램" },
+    // { src: asset(PROGRAM_IMAGE_02), alt: "프로그램" },
+    // { src: asset(PROGRAM_IMAGE_03), alt: "프로그램" },
+    // { src: asset(PROGRAM_IMAGE_04), alt: "프로그램" },
     // 이미지가 아직 없으면 위 배열을 [] 로 두세요.
   ];
 
@@ -33,20 +37,7 @@ export default function Page() {
   const [zoomed, setZoomed] = useState(false);
 
   // md 이상 여부
-  const [isMdUp, setIsMdUp] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMdUp(event.matches);
-    };
-    // 초기값
-    setIsMdUp(mq.matches);
-    mq.addEventListener("change", handleChange);
-    return () => {
-      mq.removeEventListener("change", handleChange);
-    };
-  }, []);
+  const isMdUp = useMediaQuery("(min-width: 768px)");
 
   // 화면(뷰포트) 크기
   const [viewport, setViewport] = useState({ w: 0, h: 0 });
@@ -198,7 +189,7 @@ export default function Page() {
         </ol>
       </nav>
 
-      {true ? (
+      {0 ? (
         <ComingSoon />
       ) : (
         <>
@@ -211,7 +202,7 @@ export default function Page() {
                 <button
                   type="button"
                   className="relative block w-full overflow-hidden rounded-lg cursor-zoom-in"
-                  style={{ aspectRatio: '16/9' }} // 비율 미리 확보 (CLS 방지)
+                  style={{ aspectRatio: "16/9" }} // 비율 미리 확보 (CLS 방지)
                   onClick={() => {
                     setLightboxIdx(i);
                     // 처음 열 때는 항상 "기본 배율" 상태

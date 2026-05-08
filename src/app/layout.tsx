@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import NavBar from "@/components/site/NavBar";
 import Footer from "@/components/site/Footer";
 import { FAVICON_IMAGE } from "@/data/source_path";
@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   description: seoConfig.description,
   keywords: seoConfig.keywords,
   authors: [{ name: "KSAFM" }],
-  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: FAVICON_IMAGE,
   },
@@ -26,6 +25,11 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -50,9 +54,7 @@ export default function RootLayout({
         {/* Sticky Footer 구조: flex flex-col min-h-screen */}
         <div className="flex min-h-screen flex-col">
           <NavBar />
-          <main className="flex-grow">
-            {children}
-          </main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
       </body>

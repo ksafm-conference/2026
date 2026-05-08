@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { pageSeo } from "@/data/seo";
 import Link from "next/link";
-import { Mail, Building2 } from "lucide-react";
 import { SPEAKERS, type Speaker } from "@/data/program";
 import SectionTitle from "@/components/SectionTitle";
 import { ICON_IMAGE } from "@/data/source_path";
@@ -13,18 +12,16 @@ export const metadata: Metadata = {
   description: pageSeo.speakers.description,
 };
 
-type AnySpeaker = (typeof SPEAKERS)[number];
-
 // 연사 배열 -> { 분야명: 연사[] } 로 그룹핑 (field | fields 둘 다 지원)
-function groupByField(list: AnySpeaker[]) {
-  const groups: Record<string, AnySpeaker[]> = {};
+function groupByField(list: Speaker[]) {
+  const groups: Record<string, Speaker[]> = {};
   const FALLBACK = "초청연사";
 
   for (const sp of list) {
-    const fields: string[] = Array.isArray((sp as any).fields)
-      ? ((sp as any).fields as string[])
-      : typeof (sp as any).field === "string" && (sp as any).field.trim().length
-        ? [(sp as any).field as string]
+    const fields: string[] = Array.isArray(sp.fields)
+      ? sp.fields
+      : typeof sp.field === "string" && sp.field.trim().length
+        ? [sp.field]
         : [];
 
     const buckets = fields.length ? fields : [FALLBACK];

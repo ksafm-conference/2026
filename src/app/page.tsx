@@ -9,9 +9,7 @@ import {
   Newspaper,
   ChevronRight,
   Pin,
-  Handshake, // ▶ 추가: 화살표 아이콘
 } from "lucide-react";
-import { externalLinks } from "@/data/nav";
 import { home } from "@/data/home";
 import { getHomeNotices } from "@/data/notices";
 import { asset } from "@/lib/paths";

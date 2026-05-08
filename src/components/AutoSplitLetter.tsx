@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface Props {
   text: string;
@@ -16,7 +16,7 @@ export default function AutoSplitLetter({ text, imageSrc }: Props) {
   const [topText, setTopText] = useState("");
   const [bottomText, setBottomText] = useState("");
 
-  const splitText = () => {
+  const splitText = useCallback(() => {
     const img = imgRef.current;
     const rightCol = rightColRef.current;
     const measure = measureRef.current;
@@ -72,7 +72,7 @@ export default function AutoSplitLetter({ text, imageSrc }: Props) {
       setTopText("");
       setBottomText(text);
     }
-  };
+  }, [text]);
 
   useEffect(() => {
     const img = imgRef.current;
@@ -100,7 +100,7 @@ export default function AutoSplitLetter({ text, imageSrc }: Props) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [text]);
+  }, [splitText]);
 
   return (
     <div className="w-full">

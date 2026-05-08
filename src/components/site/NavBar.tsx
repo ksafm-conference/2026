@@ -30,8 +30,12 @@ export default function NavBar() {
 
   // 라우트가 바뀌면 모두 닫기
   useEffect(() => {
-    setOpenIdx(null);
-    setMobileOpen(false);
+    const id = window.setTimeout(() => {
+      setOpenIdx(null);
+      setMobileOpen(false);
+    }, 0);
+
+    return () => window.clearTimeout(id);
   }, [pathname]);
 
   // 바깥 클릭 시 닫기
@@ -99,8 +103,13 @@ export default function NavBar() {
                   onClick={() => (isOpen ? setOpenIdx(null) : openMenu(i))}
                   onKeyDown={(e) => {
                     if (e.key === "Escape") setOpenIdx(null);
-                    if (e.key === "Enter" || e.key === " ")
-                      isOpen ? setOpenIdx(null) : openMenu(i);
+                    if (e.key === "Enter" || e.key === " ") {
+                      if (isOpen) {
+                        setOpenIdx(null);
+                      } else {
+                        openMenu(i);
+                      }
+                    }
                   }}
                 >
                   {item.label}

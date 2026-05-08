@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { pageSeo } from "@/data/seo";
 import Link from "next/link";
-import { ExternalLink, Download, Info } from "lucide-react";
-import { externalLinks } from "@/data/nav";
 import SectionTitle from "@/components/SectionTitle";
-import { ICON_IMAGE, TEMPLATE_DOC } from "@/data/source_path";
-import { asset } from "@/lib/paths";
+import { ICON_IMAGE } from "@/data/source_path";
 import { submissionData } from "@/data/submission";
 
 export const metadata: Metadata = {

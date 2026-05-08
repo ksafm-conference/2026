@@ -24,26 +24,25 @@ export default function Access({ embedded = false, className }: AccessProps) {
     "car",
   );
 
-  const Container = ({ children }: PropsWithChildren) =>
-    embedded ? (
-      <div className={className}>{children}</div>
-    ) : (
-      <section
-        className={clsx("rounded-2xl border bg-white p-5 shadow-sm", className)}
-      >
-        {children}
-      </section>
-    );
-
-  return (
-    <Container>
+  const content = (
+    <>
       <Tabs value={tab} onChange={setTab} />
       {tab === "car" && <CarPanel />}
       {tab === "subway" && <SubwayPanel />}
       {/* {tab === "train" && <TrainPanel />} */}
       {/* {tab === "air" && <AirPanel />} */}
       {tab === "etc" && <EtcPanel />}
-    </Container>
+    </>
+  );
+
+  return embedded ? (
+    <div className={className}>{content}</div>
+  ) : (
+    <section
+      className={clsx("rounded-2xl border bg-white p-5 shadow-sm", className)}
+    >
+      {content}
+    </section>
   );
 }
 
@@ -409,7 +408,7 @@ function Badge({
 }
 
 function Dot() {
-  return <img src={asset(DOT_IMAGE)} />;
+  return <img src={asset(DOT_IMAGE)} alt="" aria-hidden="true" />;
 }
 
 /* 공용 파란 pill 버튼 */

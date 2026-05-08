@@ -1,7 +1,36 @@
 export const registrationFees = [
-  { type: "학술대회 참가비 (필수)", amount: "(KRW) 150,000 원", note: "-" },
-  { type: "초록제출 (1편 당)", amount: "(KRW) 20,000 원", note: "-" },
-];
+  {
+    group: "필수",
+    type: "참가 등록비",
+    amount: "KRW 150,000",
+    tone: "required",
+  },
+  {
+    group: "선택",
+    type: "초록 제출 (1편)",
+    amount: "KRW 20,000",
+    tone: "optional",
+  },
+  {
+    group: "선택",
+    type: "초록 제출 (2편)",
+    amount: "KRW 40,000",
+    tone: "optional",
+  },
+  {
+    group: "선택",
+    type: "초록 제출 (3편 이상)",
+    amount: "KRW 60,000",
+    tone: "optional",
+  },
+] as const;
+
+export const registrationFeeNotes = [
+  "초록을 제출하지 않고 학술대회 참가만 할 경우, 참가등록비 150,000원 결제",
+  "학술대회 참가 및 초록 1편 제출시, 참가등록비 150,000 + 20,000 = 170,000원 결제",
+  "학술대회 참가 및 초록 2편 제출시, 참가등록비 150,000 + 40,000 = 190,000원 결제",
+  "학술대회 참가 및 초록 3편 이상 제출시, 참가등록비 150,000 + 60,000 = 210,000원 결제",
+] as const;
 
 export const paymentMethods = [
   "학술대회 참가비에는 초록제출비가 포함되어 있지 않습니다.",

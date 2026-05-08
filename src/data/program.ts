@@ -5,10 +5,12 @@ export type Speaker = {
   presentation_title: string; //발표제목
   email?: string;
   photo?: string;
+  field?: string;
+  fields?: string[];
 };
 
 // 👉 이미지는 /public/speakers 폴더에 넣고, photo 경로에 파일명을 지정하세요.
-export const SPEAKERS = [
+export const SPEAKERS: Speaker[] = [
   {
     name: "박태원",
     title: "교수",
