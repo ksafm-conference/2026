@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { pageSeo } from "@/data/seo";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Download, Mail, Phone } from "lucide-react";
+import SectionTitle from "@/components/SectionTitle";
+import { pageSeo } from "@/data/seo";
+import { ICON_IMAGE } from "@/data/source_path";
+import { sponsorshipData } from "@/data/sponsorship";
+import { asset } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: pageSeo.sponsorship.title,
   description: pageSeo.sponsorship.description,
-};
-
-// 운영/문의: 학회 공식 연락처 (사용자가 제공한 정보)
-const CONTACT = {
-  email: "ksafm1@gmail.com",
-  phone: "070-4417-7125",
 };
 
 export default function Page() {
@@ -26,33 +24,86 @@ export default function Page() {
             </Link>
           </li>
           <li className="text-gray-400">/</li>
-          <li aria-current="page" className="font-medium text-gray-900">
-            전시/협찬
+          <li>
+            <span className="text-gray-700">
+              {sponsorshipData.breadcrumb.parent}
+            </span>
+          </li>
+          <li className="text-gray-400">/</li>
+          <li aria-current="page" className="font-medium text-indigo-500">
+            {sponsorshipData.breadcrumb.current}
           </li>
         </ol>
       </nav>
 
-      <h1 className="mb-6 text-2xl font-bold md:text-3xl">전시/협찬 안내</h1>
-
-      {/* <section className='rounded-2xl border bg-white p-6 shadow-sm'>
-        <h2 className='mb-3 text-lg font-semibold'>안내</h2>
-        <ul className='list-disc space-y-2 pl-5 text-sm text-gray-800'>
-          <li>부스(테이블) 규모/제공 물품/전력 사용 등은 협의 후 확정</li>
-          <li>협찬(스폰서십) 등급/혜택은 사무국과 조율</li>
-          <li>프로그램북/웹사이트 로고 노출 가능</li>
+      <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
+        <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
+          {sponsorshipData.schedule.title}
+        </SectionTitle>
+        <ul className="list-none space-y-3 pl-0 text-sm leading-relaxed text-gray-900 md:text-lg">
+          {sponsorshipData.schedule.items.map((item) => (
+            <li
+              key={item.label}
+              className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+            >
+              <span className="font-semibold">{item.label}: </span>
+              {item.content}
+              {item.note && (
+                <p className="mt-1 text-sm text-gray-700 md:text-base">
+                  ※{item.note}
+                </p>
+              )}
+            </li>
+          ))}
         </ul>
-      </section> */}
+      </section>
 
-      <section className="mt-8 rounded-2xl border bg-white p-6 shadow-sm">
-        <h2 className="mb-3 text-2xl font-semibold">문의</h2>
-        <div className="space-y-2 text-xl text-gray-800">
+      <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
+        <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
+          {sponsorshipData.benefits.title}
+        </SectionTitle>
+        <ol className="space-y-4 pl-5 text-sm leading-relaxed text-gray-900 md:text-lg">
+          {sponsorshipData.benefits.items.map((benefit) => (
+            <li key={benefit.title} className="list-decimal">
+              <p className="font-semibold">{benefit.title}</p>
+              <p className="mt-1 text-gray-800">- {benefit.content}</p>
+              {benefit.note && (
+                <p className="mt-1 text-gray-700">({benefit.note})</p>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
+        <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
+          {sponsorshipData.application.title}
+        </SectionTitle>
+        <p className="mb-4 text-sm leading-relaxed text-gray-900 md:text-lg">
+          {sponsorshipData.application.description}
+        </p>
+        <a
+          href={asset(sponsorshipData.application.documentPath)}
+          download
+          className="inline-flex items-center gap-2 rounded-xl border border-indigo-600/20 bg-gradient-to-b from-indigo-500 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:from-indigo-500 hover:to-indigo-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/50 active:scale-95"
+          rel="noopener noreferrer"
+        >
+          <Download className="h-4 w-4" />
+          {sponsorshipData.application.buttonLabel}
+        </a>
+      </section>
+
+      <section className="rounded-2xl border bg-white p-6 shadow-sm">
+        <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
+          {sponsorshipData.contact.title}
+        </SectionTitle>
+        <div className="space-y-2 text-sm text-gray-800 md:text-lg">
           <p className="inline-flex items-center gap-2">
-            <Mail className="h-4 w-4" /> {CONTACT.email}
+            <Mail className="h-4 w-4" /> {sponsorshipData.contact.email}
           </p>
           <br />
-
           <p className="inline-flex items-center gap-2">
-            <Phone className="h-4 w-4" /> {CONTACT.phone}
+            <Phone className="h-4 w-4" /> {sponsorshipData.contact.phone}
           </p>
         </div>
       </section>

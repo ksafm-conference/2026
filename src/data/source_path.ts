@@ -6,5 +6,6 @@ export const PROGRAM_IMAGE_02 = "/program/schedule/2025winter/program_02.jpg";
 export const PROGRAM_IMAGE_03 = "/program/schedule/2025winter/program_03.jpg";
 export const PROGRAM_IMAGE_04 = "/program/schedule/2025winter/program_04.jpg";
 export const TEMPLATE_DOC = "/files/(ksafm)2026하계_초록제출양식.hwp";
+export const SPONSORSHIP_DOC = "/files/(ksafm)2026하계학술대회_기업참가신청서.hwp";
 export const PROGRAM_PDF = "/files/(ksafm)2025_동계학술대회_브러슈어.pdf";
 export const DOT_IMAGE = "/dot.png";
