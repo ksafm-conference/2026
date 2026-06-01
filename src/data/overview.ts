@@ -5,9 +5,7 @@ export const overviewData = {
   },
   location: {
     title: "행사 장소",
-    items: [
-      "양재 aT센터 (서울 서초구 강남대로 27 , 1층)",
-    ],
+    items: ["양재 aT센터 (서울 서초구 강남대로 27 , 1층)"],
     website: {
       label: "aT센터 홈페이지",
       url: "https://www.at.or.kr/home/acko000000/index.action",

@@ -65,7 +65,7 @@ export default function Page() {
               </h1>
             </div>
             <div className="h-full space-y-3 mb-6 text-[15px] leading-relaxed text-gray-900 md:text-lg ">
-              <p>주제: {home.theme}</p>
+              {home.theme !== "추후 공지" && <p>주제: {home.theme}</p>}
               <p>
                 <span className="inline-flex items-center gap-2 text-gray-800">
                   일시: {home.dateText}

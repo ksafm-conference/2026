@@ -66,12 +66,14 @@ export default function Page() {
       </section>
 
       {/* 주제 */}
-      <section className="mb-8 rounded-2xl border bg-white p-5 shadow-sm">
-        <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          {overviewData.theme.title}
-        </SectionTitle>
-        <p className="text-gray-800 text-lg">{overviewData.theme.content}</p>
-      </section>
+      {overviewData.theme.content !== "추후 공지" && (
+        <section className="mb-8 rounded-2xl border bg-white p-5 shadow-sm">
+          <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
+            {overviewData.theme.title}
+          </SectionTitle>
+          <p className="text-gray-800 text-lg">{overviewData.theme.content}</p>
+        </section>
+      )}
 
       {/* 주요 일정 */}
       <section className="rounded-2xl border bg-white p-5 shadow-sm">

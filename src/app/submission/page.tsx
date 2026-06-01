@@ -50,21 +50,25 @@ export default function Page() {
       </section>
 
       {/* 발표 분야 안내*/}
-      <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
-        <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
-          {submissionData.fields.title}
-        </SectionTitle>
-        <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
-          {submissionData.fields.items.map((item, index) => (
-            <li
-              key={index}
-              className="relative pl-4 before:absolute before:left-0 before:content-['-']"
-            >
-              {item.label}: {item.content}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {submissionData.fields.items.some((item) => item.content !== "추후 공지") && (
+        <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
+          <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
+            {submissionData.fields.title}
+          </SectionTitle>
+          <ul className="list-none pl-0 space-y-2 text-sm md:text-lg text-gray-900">
+            {submissionData.fields.items
+              .filter((item) => item.content !== "추후 공지")
+              .map((item, index) => (
+                <li
+                  key={index}
+                  className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+                >
+                  {item.label}: {item.content}
+                </li>
+              ))}
+          </ul>
+        </section>
+      )}
 
       {/* 제출 절차 */}
       <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
