@@ -32,7 +32,7 @@ export const NOTICES: Notice[] = [
     content: "초록 제출/등록 방법 안내 페이지로 이동합니다.",
     date: "2026-05-08",
     showOnHome: true,
-    pinHome: true,
+    // pinHome: true,
   },
   {
     href: "/submission/guideline",
@@ -100,11 +100,12 @@ export const NOTICES: Notice[] = [
   //   ],
   // },
   {
-    id: "notice-1'",
+    id: "notice-1",
     title: "2026년 하계학술대회 세부일정표 알림",
     date: "2026-06-17",
     pinned: true,
     showOnHome: true,
+    pinHome: true,
     contentHtml: `
       <p>한국농림기상학회 회원님께</p>
       <p>2026년 하계학술대회 세부일정표를 첨부하오니, 참고하시기 바랍니다.</p>
@@ -112,7 +113,7 @@ export const NOTICES: Notice[] = [
     `,
     attachments: [
       {
-        label: "(ksafm)2026_하계학술대회_브러슈어.pdf",
+        label: "(ksafm)2026_하계학술대회_상세일정표.pdf",
         href: "/notice/(ksafm)2026_하계학술대회_상세일정표.pdf",
         type: ".pdf",
         size: "5.57 MB",
