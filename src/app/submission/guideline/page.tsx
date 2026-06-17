@@ -30,7 +30,7 @@ export default function Page() {
       </nav>
 
       {/* <h1 className='mb-6 text-2xl font-bold md:text-3xl'>발표/포스터 안내 (Guideline)</h1> */}
-      {true ? (
+      {false ? (
         <ComingSoon />
       ) : (
         <>
@@ -41,14 +41,20 @@ export default function Page() {
             </SectionTitle>
             <ul className="list-none pl-0 space-y-2 text-lg text-gray-900">
               {guidelineData.oral.items.map((item, index) => (
-                <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+                <li
+                  key={index}
+                  className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+                >
                   {item}
                 </li>
               ))}
             </ul>
             <ul className="mt-10 list-none pl-0 space-y-2 text-lg text-gray-900">
               {guidelineData.oral.notices.map((notice, index) => (
-                <li key={index} className="relative pl-6 before:absolute before:left-0 before:content-['※']">
+                <li
+                  key={index}
+                  className="relative pl-6 before:absolute before:left-0 before:content-['※']"
+                >
                   {notice.includes("ksafm2@gmail.com") ? (
                     <>
                       {notice.split("(ksafm2@gmail.com)")[0]}
@@ -75,7 +81,10 @@ export default function Page() {
             </SectionTitle>
             <ul className="list-none pl-0 space-y-2 text-lg text-gray-900">
               {guidelineData.poster.items.map((item, index) => (
-                <li key={index} className="relative pl-4 before:absolute before:left-0 before:content-['-']">
+                <li
+                  key={index}
+                  className="relative pl-4 before:absolute before:left-0 before:content-['-']"
+                >
                   {item}
                 </li>
               ))}

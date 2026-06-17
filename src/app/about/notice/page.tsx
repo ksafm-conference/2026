@@ -29,11 +29,11 @@ export default function Page() {
             공지사항
           </li>
         </ol>
-        <ComingSoon />
+        {/* <ComingSoon /> */}
+        <NoticeBoard />
       </nav>
 
       {/* ✅ 카드형 공지 섹션 */}
-      <NoticeBoard />
     </main>
   );
 }

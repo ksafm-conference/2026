@@ -34,14 +34,14 @@ export const NOTICES: Notice[] = [
     showOnHome: true,
     pinHome: true,
   },
-  // {
-  //   href: "/submission/guideline",
-  //   title: "발표 진행 안내 (발표 시간, 포스터 부착 위치 등)",
-  //   content: "발표 시간과 포스터 부착 위치 등 진행 안내를 확인하세요.",
-  //   date: "2025-10-15",
-  //   showOnHome: true,
-  //   pinHome: true,
-  // },
+  {
+    href: "/submission/guideline",
+    title: "발표 진행 안내 (발표 시간, 포스터 부착 위치 등)",
+    content: "발표 시간과 포스터 부착 위치 등 진행 안내를 확인하세요.",
+    date: "2026-06-16",
+    showOnHome: true,
+    pinHome: true,
+  },
   // {
   //   id: "notice-1",
   //   title: "2025년 동계학술대회 숙박 예약 안내",
@@ -99,6 +99,27 @@ export const NOTICES: Notice[] = [
   //     },
   //   ],
   // },
+  {
+    id: "notice-1'",
+    title: "2026년 하계학술대회 세부일정표 알림",
+    date: "2026-06-17",
+    pinned: true,
+    showOnHome: true,
+    contentHtml: `
+      <p>한국농림기상학회 회원님께</p>
+      <p>2026년 하계학술대회 세부일정표를 첨부하오니, 참고하시기 바랍니다.</p>
+      <p>첨부파일을 확인부탁드립니다.</p>
+    `,
+    attachments: [
+      {
+        label: "(ksafm)2026_하계학술대회_브러슈어.pdf",
+        href: "/notice/(ksafm)2026_하계학술대회_상세일정표.pdf",
+        type: ".pdf",
+        size: "5.57 MB",
+        downloadable: true, // 브라우저에서 곧바로 다운로드
+      },
+    ],
+  },
   // {
   //   id: "notice-68",
   //   title: "발표 진행 안내",
