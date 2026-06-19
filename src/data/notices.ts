@@ -128,7 +128,7 @@ export const NOTICES: Notice[] = [
     date: "2026-06-19",
     // pinned: true,
     showOnHome: true,
-    pinHome: true,
+    // pinHome: true,
     contentHtml: `
 
     <br/>
