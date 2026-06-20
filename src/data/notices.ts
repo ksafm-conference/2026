@@ -22,7 +22,7 @@ export type Notice = {
   }[];
 };
 
-const RECENT_DAYS = 14;
+const RECENT_DAYS = 3;
 
 /** 한 곳에서 공지 관리 */
 export const NOTICES: Notice[] = [
@@ -39,6 +39,15 @@ export const NOTICES: Notice[] = [
     title: "발표 진행 안내 (발표 시간, 포스터 부착 위치 등)",
     content: "발표 시간과 포스터 부착 위치 등 진행 안내를 확인하세요.",
     date: "2026-06-16",
+    showOnHome: true,
+    // pinHome: true,
+  },
+  {
+    title: "2026년 하계학술대회 초록집",
+    href: "http://ksafm.org/community/data/read.php?no=46",
+    external: true,
+    content: "한국농림기상학회 자료실의 초록집 페이지로 이동합니다.",
+    date: "2026-06-20",
     showOnHome: true,
     pinHome: true,
   },
@@ -124,7 +133,7 @@ export const NOTICES: Notice[] = [
 
   {
     id: "notice-2",
-    title: "🅿️ 행사장 주차 안내",
+    title: "행사장 주차 안내",
     date: "2026-06-19",
     // pinned: true,
     showOnHome: true,
