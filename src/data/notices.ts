@@ -26,31 +26,31 @@ const RECENT_DAYS = 3;
 
 /** 한 곳에서 공지 관리 */
 export const NOTICES: Notice[] = [
-  {
-    title: "2026 하계학술대회 사이트 오픈 및 초록 제출/등록 안내",
-    href: "/submission",
-    content: "초록 제출/등록 방법 안내 페이지로 이동합니다.",
-    date: "2026-05-08",
-    showOnHome: true,
-    // pinHome: true,
-  },
-  {
-    href: "/submission/guideline",
-    title: "발표 진행 안내 (발표 시간, 포스터 부착 위치 등)",
-    content: "발표 시간과 포스터 부착 위치 등 진행 안내를 확인하세요.",
-    date: "2026-06-16",
-    showOnHome: true,
-    // pinHome: true,
-  },
-  {
-    title: "2026년 하계학술대회 초록집",
-    href: "http://ksafm.org/community/data/read.php?no=46",
-    external: true,
-    content: "한국농림기상학회 자료실의 초록집 페이지로 이동합니다.",
-    date: "2026-06-20",
-    showOnHome: true,
-    pinHome: true,
-  },
+  // {
+  //   title: "2026 하계학술대회 사이트 오픈 및 초록 제출/등록 안내",
+  //   href: "/submission",
+  //   content: "초록 제출/등록 방법 안내 페이지로 이동합니다.",
+  //   date: "2026-05-08",
+  //   showOnHome: true,
+  //   // pinHome: true,
+  // },
+  // {
+  //   href: "/submission/guideline",
+  //   title: "발표 진행 안내 (발표 시간, 포스터 부착 위치 등)",
+  //   content: "발표 시간과 포스터 부착 위치 등 진행 안내를 확인하세요.",
+  //   date: "2026-06-16",
+  //   showOnHome: true,
+  //   // pinHome: true,
+  // },
+  // {
+  //   title: "2026년 하계학술대회 초록집",
+  //   href: "http://ksafm.org/community/data/read.php?no=46",
+  //   external: true,
+  //   content: "한국농림기상학회 자료실의 초록집 페이지로 이동합니다.",
+  //   date: "2026-06-20",
+  //   showOnHome: true,
+  //   pinHome: true,
+  // },
   // {
   //   id: "notice-1",
   //   title: "2025년 동계학술대회 숙박 예약 안내",
@@ -108,94 +108,86 @@ export const NOTICES: Notice[] = [
   //     },
   //   ],
   // },
-  {
-    id: "notice-1",
-    title: "2026년 하계학술대회 세부일정표 알림",
-    date: "2026-06-17",
-    pinned: true,
-    showOnHome: true,
-    pinHome: true,
-    contentHtml: `
-      <p>한국농림기상학회 회원님께</p>
-      <p>2026년 하계학술대회 세부일정표를 첨부하오니, 참고하시기 바랍니다.</p>
-      <p>첨부파일을 확인부탁드립니다.</p>
-    `,
-    attachments: [
-      {
-        label: "(ksafm)2026_하계학술대회_상세일정표.pdf",
-        href: "/notice/(ksafm)2026_하계학술대회_상세일정표.pdf",
-        type: ".pdf",
-        size: "5.57 MB",
-        downloadable: true, // 브라우저에서 곧바로 다운로드
-      },
-    ],
-  },
-
-  {
-    id: "notice-2",
-    title: "행사장 주차 안내",
-    date: "2026-06-19",
-    // pinned: true,
-    showOnHome: true,
-    // pinHome: true,
-    contentHtml: `
-
-    <br/>
-    <p>안녕하세요, 학술대회 참석자 여러분께 안내드립니다.</p>
-    <br/>
-
-    <p>
-      행사장 내 주차 공간이 매우 협소하며, 행사 주차권은 기본적으로 제공되지 않습니다.</p>
-    <p>
-      또한 행사장 주차비가 비교적 높게 책정되어 있어, 원활한 행사 참여를 위해
-      대중교통 이용을 적극 권장드립니다.
-    </p>
-
-    <p>
-      부득이 차량을 이용하셔야 하는 경우, 아래 인근 공영주차장을 참고해 주시기 바랍니다.
-    </p>
-
-    <br/>
-    <br/>
-
-    <h4>🚗 인근 공영주차장 안내 (aT센터 주변)</h4>
-    <br/>
-    <ul>
-      <li>양재시민의숲 공영주차장 (도보 약 5분)</li>
-      <li>동산마을구립 공영주차장 (도보 약 7분)</li>
-      <li>언남문화체육센터 공영주차장 (도보 약 10분)</li>
-      <li>구룡어린이공원 공영주차장 (도보 약 10분)</li>
-      <li>양재근린공원 공영주차장 (도보 약 10분)</li>
-    </ul>
-    <br/>
-    <br/>
-    <h4>🚦 이용 안내</h4>
-    <br/>
-    <ul>
-      <li>행사장 주차비는 10분당 약 700원 수준으로 비용 부담이 큽니다.</li>
-      <li>장시간 주차 시에는 인근 공영주차장을 활용하는 것이 경제적입니다.</li>
-      <li>일부 공영주차장은 전기차 충전구역 및 장애인 주차구역을 갖추고 있습니다.</li>
-    </ul>
-
-    <p>
-      참석자 여러분의 편의를 위한 안내이오니 많은 협조 부탁드립니다.<br />
-      <br/>
-      감사합니다.
-    </p>
-          <br/>
-    <img src="/notice/공영주차장.png" alt="인근공영주차장안내" style="display:block;margin:.25rem auto 0;max-width:80%;height:auto;border:1px solid #eee;border-radius:8px" />
-  `,
-    // attachments: [
-    //   {
-    //     label: "행사장_주차_안내.hwpx",
-    //     href: "/notice/행사장_주차_안내.hwpx",
-    //     type: ".hwpx",
-    //     size: "36 KB",
-    //     downloadable: true,
-    //   },
-    // ],
-  },
-
+  // {
+  //   id: "notice-1",
+  //   title: "2026년 하계학술대회 세부일정표 알림",
+  //   date: "2026-06-17",
+  //   pinned: true,
+  //   showOnHome: true,
+  //   pinHome: true,
+  //   contentHtml: `
+  //     <p>한국농림기상학회 회원님께</p>
+  //     <p>2026년 하계학술대회 세부일정표를 첨부하오니, 참고하시기 바랍니다.</p>
+  //     <p>첨부파일을 확인부탁드립니다.</p>
+  //   `,
+  //   attachments: [
+  //     {
+  //       label: "(ksafm)2026_하계학술대회_상세일정표.pdf",
+  //       href: "/notice/(ksafm)2026_하계학술대회_상세일정표.pdf",
+  //       type: ".pdf",
+  //       size: "5.57 MB",
+  //       downloadable: true, // 브라우저에서 곧바로 다운로드
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: "notice-2",
+  //   title: "행사장 주차 안내",
+  //   date: "2026-06-19",
+  //   // pinned: true,
+  //   showOnHome: true,
+  //   // pinHome: true,
+  //   contentHtml: `
+  //   <br/>
+  //   <p>안녕하세요, 학술대회 참석자 여러분께 안내드립니다.</p>
+  //   <br/>
+  //   <p>
+  //     행사장 내 주차 공간이 매우 협소하며, 행사 주차권은 기본적으로 제공되지 않습니다.</p>
+  //   <p>
+  //     또한 행사장 주차비가 비교적 높게 책정되어 있어, 원활한 행사 참여를 위해
+  //     대중교통 이용을 적극 권장드립니다.
+  //   </p>
+  //   <p>
+  //     부득이 차량을 이용하셔야 하는 경우, 아래 인근 공영주차장을 참고해 주시기 바랍니다.
+  //   </p>
+  //   <br/>
+  //   <br/>
+  //   <h4>🚗 인근 공영주차장 안내 (aT센터 주변)</h4>
+  //   <br/>
+  //   <ul>
+  //     <li>양재시민의숲 공영주차장 (도보 약 5분)</li>
+  //     <li>동산마을구립 공영주차장 (도보 약 7분)</li>
+  //     <li>언남문화체육센터 공영주차장 (도보 약 10분)</li>
+  //     <li>구룡어린이공원 공영주차장 (도보 약 10분)</li>
+  //     <li>양재근린공원 공영주차장 (도보 약 10분)</li>
+  //   </ul>
+  //   <br/>
+  //   <br/>
+  //   <h4>🚦 이용 안내</h4>
+  //   <br/>
+  //   <ul>
+  //     <li>행사장 주차비는 10분당 약 700원 수준으로 비용 부담이 큽니다.</li>
+  //     <li>장시간 주차 시에는 인근 공영주차장을 활용하는 것이 경제적입니다.</li>
+  //     <li>일부 공영주차장은 전기차 충전구역 및 장애인 주차구역을 갖추고 있습니다.</li>
+  //   </ul>
+  //   <p>
+  //     참석자 여러분의 편의를 위한 안내이오니 많은 협조 부탁드립니다.<br />
+  //     <br/>
+  //     감사합니다.
+  //   </p>
+  //         <br/>
+  //   <img src="/notice/공영주차장.png" alt="인근공영주차장안내" style="display:block;margin:.25rem auto 0;max-width:80%;height:auto;border:1px solid #eee;border-radius:8px" />
+  // `,
+  //   // attachments: [
+  //   //   {
+  //   //     label: "행사장_주차_안내.hwpx",
+  //   //     href: "/notice/행사장_주차_안내.hwpx",
+  //   //     type: ".hwpx",
+  //   //     size: "36 KB",
+  //   //     downloadable: true,
+  //   //   },
+  //   // ],
+  // },
   // {
   //   id: "notice-68",
   //   title: "발표 진행 안내",

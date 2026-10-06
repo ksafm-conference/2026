@@ -50,7 +50,9 @@ export default function Page() {
       </section>
 
       {/* 발표 분야 안내*/}
-      {submissionData.fields.items.some((item) => item.content !== "추후 공지") && (
+      {submissionData.fields.items.some(
+        (item) => item.content !== "추후 공지",
+      ) && (
         <section className="mb-8 rounded-2xl border bg-white p-6 shadow-sm">
           <SectionTitle icon={ICON_IMAGE} as="h1" className="text-xl">
             {submissionData.fields.title}
@@ -95,9 +97,9 @@ export default function Page() {
         <p className="mb-4 text-sm md:text-lg text-gray-900">
           {submissionData.format.content}
         </p>
-        <div className="flex flex-wrap gap-2">
-          {/* 양식 다운로드 (hwp) */}
 
+        <div className="flex flex-wrap gap-2">
+          {/*
           <a
             href={asset(TEMPLATE_DOC)}
             download
@@ -107,7 +109,7 @@ export default function Page() {
             <Download className="h-4 w-4" />
             초록 양식 다운로드
           </a>
-          {/* 제출 페이지 이동 */}
+
 
           <a
             href={externalLinks.submission}
@@ -117,7 +119,7 @@ export default function Page() {
           >
             초록 제출
             <ExternalLink className="h-4 w-4" />
-          </a>
+          </a> */}
         </div>
 
         {/* 안내 박스 */}

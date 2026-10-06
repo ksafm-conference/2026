@@ -54,7 +54,7 @@ export default function Page() {
     <main className="min-h-[80vh]">
       {/* Hero (상단 배너) */}
       <section className="border-b bg-white min-h-[400px] flex items-center">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-10 md:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-4 py-10 md:grid-cols-2">
           <div>
             <div>
               <p className="mb-2 text-[11px] md:text-sm font-semibold tracking-widest text-gray-500">

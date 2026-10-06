@@ -46,7 +46,7 @@ export const refundPolicy = {
     "등록 취소 및 환불기간은 아래의 내용 참고 부탁드립니다.",
   ],
   dates: [
-    { label: "2026년 6월 22일 이전", content: "전액 환불" },
-    { label: "2026년 6월 22일 이후", content: "문의 요망" },
+    { label: "2026년 12월 15일 이전", content: "전액 환불" },
+    { label: "2026년 12월 15일 이후", content: "문의 요망" },
   ],
 };

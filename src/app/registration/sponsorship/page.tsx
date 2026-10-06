@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import { pageSeo } from "@/data/seo";
 import { ICON_IMAGE } from "@/data/source_path";
 import { sponsorshipData } from "@/data/sponsorship";
-import { asset } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: pageSeo.sponsorship.title,
@@ -82,15 +81,6 @@ export default function Page() {
         <p className="mb-4 text-sm leading-relaxed text-gray-900 md:text-lg">
           {sponsorshipData.application.description}
         </p>
-        <a
-          href={asset(sponsorshipData.application.documentPath)}
-          download
-          className="inline-flex items-center gap-2 rounded-xl border border-indigo-600/20 bg-gradient-to-b from-indigo-500 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:from-indigo-500 hover:to-indigo-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/50 active:scale-95"
-          rel="noopener noreferrer"
-        >
-          <Download className="h-4 w-4" />
-          {sponsorshipData.application.buttonLabel}
-        </a>
       </section>
 
       <section className="rounded-2xl border bg-white p-6 shadow-sm">

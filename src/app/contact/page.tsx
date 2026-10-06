@@ -29,38 +29,29 @@ export default function Page() {
           <p className="text-lg md:flex gap-1 items-center">
             <span className="flex gap-1">
               <MapPinHouse />
-              주소 : 서울특별시 서초구 강남대로 27 (양재동 232
+              주소 : 부산 해운대구 마린시티3로 52 (
             </span>
             <a
-              href="https://www.at.or.kr/contents/acko331400/view.action"
+              href="https://www.hanwharesort.co.kr/irsweb/resort3/resort/rs_contact.do?bp_cd=0801"
               className="underline underline-offset-2 ml-16 md:ml-0 text-indigo-600"
               rel="noopener noreferrer"
               target="_blank"
             >
-              aT센터
+              한화리조트 해운대
             </a>{" "}
-            ), 1층
+            )
           </p>
           <p className="text-lg flex gap-1 items-center">
             <Phone />
-            <a href="tel:0263001114"> 전화 : 02-6300-1114</a>
+            <a href="tel:0517495500"> 전화 : 051-749-5500</a>
           </p>
         </div>
 
         {/* 지도 */}
         <LocationMap
-          title="양재 aT센터"
-          point={{ lat: 37.4682787075426, lng: 127.039136433366 }}
+          title="한화리조트 해운대"
+          point={{ lat: 35.1544884734, lng: 129.1451010152 }}
           initLevel={3}
-          bigView={{
-            srcid: 17023403,
-            itemId: 17023403,
-            q: "aT센터",
-            urlX: 508680.0000000024,
-            urlY: 1102413.0000000005,
-
-            mapType: "TYPE_MAP",
-          }}
         />
       </section>
 

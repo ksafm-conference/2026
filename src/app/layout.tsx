@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import NavBar from "@/components/site/NavBar";
 import Footer from "@/components/site/Footer";
 import { FAVICON_IMAGE } from "@/data/source_path";
+import { asset } from "@/lib/paths";
 
 import { seoConfig } from "@/data/seo";
 
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   keywords: seoConfig.keywords,
   authors: [{ name: "KSAFM" }],
   icons: {
-    icon: FAVICON_IMAGE,
+    icon: asset(FAVICON_IMAGE),
   },
   openGraph: {
     title: seoConfig.siteName,

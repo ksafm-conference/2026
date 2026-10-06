@@ -5,10 +5,10 @@ export const overviewData = {
   },
   location: {
     title: "행사 장소",
-    items: ["양재 aT센터 (서울 서초구 강남대로 27 , 1층)"],
+    items: ["한화리조트 해운대 (부산 해운대구 마린시티3로 52)"],
     website: {
-      label: "aT센터 홈페이지",
-      url: "https://www.at.or.kr/home/acko000000/index.action",
+      label: "한화리조트 해운대 홈페이지",
+      url: "https://www.hanwharesort.co.kr/irsweb/resort3/resort/rs_contact.do?bp_cd=0801",
     },
   },
   theme: {
@@ -18,7 +18,7 @@ export const overviewData = {
   schedule: {
     title: "주요 일정",
     items: [
-      { label: "행사 기간", date: "2026년 6월 22-23일 (월-화, 1박 2일)" },
+      { label: "행사 기간", date: "2026년 12월 17~18일 (목-금, 1박 2일)" },
     ],
   },
 };

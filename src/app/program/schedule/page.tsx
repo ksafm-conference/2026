@@ -24,7 +24,7 @@ function useMediaQuery(query: string) {
 export default function Page() {
   // 이미지 파일은 public 경로에 있어야 합니다.
   const images: { src: string; alt: string; caption?: string }[] = [
-    { src: asset(PROGRAM_IMAGE), alt: "프로그램" },
+    // { src: asset(PROGRAM_IMAGE), alt: "프로그램" },
     // { src: asset(PROGRAM_IMAGE_01), alt: "프로그램" },
     // { src: asset(PROGRAM_IMAGE_02), alt: "프로그램" },
     // { src: asset(PROGRAM_IMAGE_03), alt: "프로그램" },
@@ -189,7 +189,7 @@ export default function Page() {
         </ol>
       </nav>
 
-      {0 ? (
+      {true ? (
         <ComingSoon />
       ) : (
         <>
