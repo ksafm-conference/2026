@@ -8,6 +8,8 @@ import { asset } from "@/lib/paths";
 import { seoConfig } from "@/data/seo";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(seoConfig.url),
+  applicationName: seoConfig.siteLabel,
   title: {
     template: `%s | ${seoConfig.siteName}`,
     default: seoConfig.siteName,
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
     title: seoConfig.siteName,
     description: seoConfig.description,
     url: seoConfig.url,
-    siteName: seoConfig.siteName,
+    siteName: seoConfig.siteLabel,
     locale: "ko_KR",
     type: "website",
   },

@@ -1,13 +1,14 @@
 export const seoConfig = {
   siteName: "2026 한국농림기상학회 동계학술대회",
+  siteLabel: "한국농림기상학회 학술대회",
   description: "2026 한국농림기상학회 동계학술대회 공식 홈페이지입니다. 학술대회 개요, 프로그램, 초록 제출 및 등록 안내를 확인하세요.",
   keywords: ["한국농림기상학회", "KSAFM", "2026 학술대회", "농림기상", "기상학", "농업기상", "산림기상"],
-  url: "https://ksafm.github.io/2026", // 실제 배포 URL로 수정 필요
+  url: "https://ksafm-conference.github.io/2026/",
 };
 
 export const pageSeo = {
   home: {
-    title: "홈", // 결과: 홈 | 2026 한국농림기상학회 하계학술대회
+    title: "2026 한국농림기상학회 동계학술대회",
     description: "2026 한국농림기상학회 학술대회에 오신 것을 환영합니다.",
   },
   overview: {

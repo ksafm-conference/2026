@@ -13,11 +13,12 @@ import {
 import { home } from "@/data/home";
 import { getHomeNotices } from "@/data/notices";
 import { asset } from "@/lib/paths";
-import { pageSeo } from "@/data/seo";
+import { pageSeo, seoConfig } from "@/data/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: pageSeo.home.title,
+  title: { absolute: pageSeo.home.title },
+  alternates: { canonical: seoConfig.url },
   description: pageSeo.home.description,
 };
 
