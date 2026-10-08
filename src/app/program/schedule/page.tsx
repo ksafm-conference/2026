@@ -24,7 +24,7 @@ function useMediaQuery(query: string) {
 export default function Page() {
   // 이미지 파일은 public 경로에 있어야 합니다.
   const images: { src: string; alt: string; caption?: string }[] = [
-    // { src: asset(PROGRAM_IMAGE), alt: "프로그램" },
+    { src: asset(PROGRAM_IMAGE), alt: "프로그램" },
     // { src: asset(PROGRAM_IMAGE_01), alt: "프로그램" },
     // { src: asset(PROGRAM_IMAGE_02), alt: "프로그램" },
     // { src: asset(PROGRAM_IMAGE_03), alt: "프로그램" },
@@ -189,7 +189,7 @@ export default function Page() {
         </ol>
       </nav>
 
-      {true ? (
+      {false ? (
         <ComingSoon />
       ) : (
         <>
@@ -202,7 +202,6 @@ export default function Page() {
                 <button
                   type="button"
                   className="relative block w-full overflow-hidden rounded-lg cursor-zoom-in"
-                  style={{ aspectRatio: "16/9" }} // 비율 미리 확보 (CLS 방지)
                   onClick={() => {
                     setLightboxIdx(i);
                     // 처음 열 때는 항상 "기본 배율" 상태
@@ -213,8 +212,9 @@ export default function Page() {
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    fill
-                    className="object-contain"
+                    width={2987}
+                    height={2394}
+                    className="block h-auto w-full"
                     unoptimized
                   />
                 </button>

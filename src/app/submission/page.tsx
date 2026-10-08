@@ -99,7 +99,6 @@ export default function Page() {
         </p>
 
         <div className="flex flex-wrap gap-2">
-          {/*
           <a
             href={asset(TEMPLATE_DOC)}
             download
@@ -110,7 +109,6 @@ export default function Page() {
             초록 양식 다운로드
           </a>
 
-
           <a
             href={externalLinks.submission}
             target="_blank"
@@ -119,11 +117,11 @@ export default function Page() {
           >
             초록 제출
             <ExternalLink className="h-4 w-4" />
-          </a> */}
+          </a>
         </div>
 
         {/* 안내 박스 */}
-        {/* <div className="mt-4 flex items-start gap-2 rounded-lg bg-indigo-50/70 p-3 text-[13px] text-indigo-900">
+        <div className="mt-4 flex items-start gap-2 rounded-lg bg-indigo-50/70 p-3 text-[13px] text-indigo-900">
           <Info className="mt-0.5 h-4 w-4 shrink-0" />
           <p>
             템플릿에 맞춰 작성 후 <strong>HWP</strong> 파일로 업로드하세요.
@@ -132,7 +130,7 @@ export default function Page() {
               KSAFM_2026_홍길동.hwp
             </code>
           </p>
-        </div> */}
+        </div>
       </section>
     </main>
   );
