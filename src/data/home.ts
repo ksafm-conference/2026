@@ -15,9 +15,9 @@ export const home = {
   ],
 
   importantDates: [
-    { date: "추후 공지", label: "초록제출 마감" },
-    // { date: "2025-11-21", label: "초록제출 최종마감", strike: true },
-    { date: "추후 공지", label: "온라인 등록기간" },
+    { date: "~ 2026년 11월 25일", label: "초록제출 1차 마감" },
+    { date: "~ 2026년 11월 30일", label: "초록제출 최종 마감" },
+    { date: "~ 2026년 12월 15일까지", label: "온라인 등록기간" },
     { date: "2026년 12월 17~18일 (목-금, 1박 2일)", label: "행사 기간" },
   ],
 
