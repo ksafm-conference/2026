@@ -212,8 +212,8 @@ export default function Page() {
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    width={2987}
-                    height={2394}
+                    width={2915}
+                    height={2466}
                     className="block h-auto w-full"
                     unoptimized
                   />
