@@ -13,7 +13,7 @@ export const overviewData = {
   },
   theme: {
     title: "주제",
-    content: "추후 공지",
+    content: "농림기상학의 새로운 역할: 위성·AI와 사회적 가치",
   },
   schedule: {
     title: "주요 일정",

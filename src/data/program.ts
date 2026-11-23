@@ -12,31 +12,29 @@ export type Speaker = {
 // 👉 이미지는 /public/speakers 폴더에 넣고, photo 경로에 파일명을 지정하세요.
 export const SPEAKERS: Speaker[] = [
   {
-    name: "박태원",
+    name: "이양원",
     title: "교수",
-    affiliation: "전남대학교",
-    presentation_title:
-      "한국 기후위기 평가보고서 2025: 한반도 기후위기의 과학적 근거",
+    affiliation: "(국립부경대학교 위성정보융합공학전공)",
+    presentation_title: " AI 원격탐사 기반 농림 모니터링",
     // email: 'hong@af.ac.kr',
-    photo: "/speakers/pack.jpg",
+    // photo: "/speakers/pack.jpg",
     // field: "농업분야", // 단일 분야
   },
   {
-    name: "김광수",
-    title: "교수",
-    affiliation: "서울대학교",
-    presentation_title:
-      "한국 기후위기 평가보고서 2025: 농업부문의 영향 분석과 적응 전략",
+    name: "임영일",
+    title: "과장",
+    affiliation: "(국가데이터처 사회통계국 농어업통계과)",
+    presentation_title: "원탐,AI를 활용한 농업통계 작성 현황과 향후 계획",
     // email: 'hong@af.ac.kr',
-    photo: "/speakers/kim.jpg",
+    // photo: "/speakers/kim.jpg",
     // field: "산림분야", // 단일 분야
   },
   {
-    name: "서창완",
-    title: "기후생태연구실장",
-    affiliation: "국립생태원",
-    presentation_title: "기후위기의 생태계 영향 및 대응을 위한 적응 방안",
-    photo: "/speakers/seo.jpg",
+    name: "박고은",
+    title: "박사",
+    affiliation: "(국립산림과학원 산림생태연구과)",
+    presentation_title: "",
+    // photo: "/speakers/seo.jpg",
     // fields: ["농업분야", "기상분야"],
   },
 ];

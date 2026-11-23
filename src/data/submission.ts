@@ -11,7 +11,10 @@ export const submissionData = {
   fields: {
     title: "발표 분야 안내",
     items: [
-      { label: "주제", content: "추후 공지" },
+      {
+        label: "주제",
+        content: "농림기상학의 새로운 역할: 위성·AI와 사회적 가치",
+      },
       { label: "분야", content: "추후 공지" },
     ],
   },

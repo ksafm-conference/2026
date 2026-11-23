@@ -3,7 +3,7 @@ import { externalLinks } from "./nav";
 export const home = {
   society: "CONFERENCE ON AGRICULTURAL AND FOREST METEOROLOGY",
   title: "2026 한국농림기상학회 동계학술대회",
-  theme: "추후 공지",
+  theme: "농림기상학의 새로운 역할: 위성·AI와 사회적 가치",
   dateText: "2026년 12월 17~18일 (목-금, 1박 2일)",
   venueText: "한화리조트 해운대 (부산 해운대구 마린시티3로 52)",
   sponsorship: [

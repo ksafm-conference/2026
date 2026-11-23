@@ -5,7 +5,6 @@ import { SPEAKERS, type Speaker } from "@/data/program";
 import SectionTitle from "@/components/SectionTitle";
 import { ICON_IMAGE } from "@/data/source_path";
 import ComingSoon from "@/components/ComingSoon";
-import { asset } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: pageSeo.speakers.title,
@@ -72,7 +71,7 @@ export default function Page() {
         초청 연사 (Speakers)
       </h1> */}
 
-      {true ? (
+      {!hasData ? (
         <ComingSoon />
       ) : (
         <>
@@ -93,7 +92,7 @@ export default function Page() {
                     className="rounded-2xl border bg-white p-4 shadow-sm"
                   >
                     <div className="m-1 flex items-center gap-3">
-                      {"photo" in sp && sp.photo ? (
+                      {/* {"photo" in sp && sp.photo ? (
                         <img
                           src={asset(sp.photo) as string}
                           alt={sp.name}
@@ -103,19 +102,20 @@ export default function Page() {
                         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 text-base font-semibold text-gray-700">
                           {sp.name.slice(0, 1)}
                         </div>
-                      )}
+                      )} */}
                       <div className="space-y-3 md:space-y-5">
                         <h3 className="text-base md:text-xl font-semibold text-gray-900">
-                          - {sp.affiliation}
-                          <span> </span>
-                          {sp.name}
-                          <span> </span>
-                          {sp.title}
+                          -{sp.name}
+                          {sp.title && <span> {sp.title}</span>}
+                          <br />
+                          <span className="md:text-lg">{sp.affiliation}</span>
                         </h3>
 
-                        <h3 className="text-base md:text-xl font-semibold text-gray-900">
-                          - {sp.presentation_title}
-                        </h3>
+                        {sp.presentation_title.trim() && (
+                          <h3 className="text-base md:text-xl font-semibold text-gray-900">
+                            - {sp.presentation_title.trim()}
+                          </h3>
+                        )}
                       </div>
                     </div>
                   </article>
