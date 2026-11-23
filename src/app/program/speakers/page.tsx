@@ -105,7 +105,7 @@ export default function Page() {
                       )} */}
                       <div className="space-y-3 md:space-y-5">
                         <h3 className="text-base md:text-xl font-semibold text-gray-900">
-                          -{sp.name}
+                          {sp.name}
                           {sp.title && <span> {sp.title}</span>}
                           <br />
                           <span className="md:text-lg">{sp.affiliation}</span>
