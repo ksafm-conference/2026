@@ -32,29 +32,31 @@ export default function Page() {
         </ol>
       </nav>
       <section className="rounded-2xl border bg-white p-6 shadow-sm">
-        <h1 className="mb-8 break-keep text-2xl font-bold text-gray-900 md:text-3xl">
+        <h1 className="mb-8 break-keep text-center text-2xl font-bold text-gray-900 md:text-3xl">
           {invitationData.title}
         </h1>
         <div className="space-y-6 text-lg leading-relaxed lg:text-xl">
           {invitationData.letter.split("\n\n").map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+            <p key={paragraph} className="whitespace-pre-wrap">
+              {paragraph}
+            </p>
           ))}
         </div>
 
-        <div className="mt-10 flex items-end justify-between gap-4 sm:gap-8">
+        <div className="mt-10 flex items-end justify-between gap-4 px-1 sm:gap-8 sm:px-8 lg:px-12">
           <Image
             src={asset("/files/sim.jpg")}
             alt="한국농림기상학회장 심교문"
             width={600}
             height={777}
-            className="h-auto w-20 shrink-0 sm:w-40 lg:w-48"
+            className="h-auto w-24 shrink-0 sm:w-48 lg:w-56"
           />
-          <div className="min-w-0 space-y-3 text-right text-sm text-black sm:text-lg">
+          <div className="min-w-0 space-y-4 text-right text-sm text-black sm:text-xl">
             <p>{invitationData.signature.date}</p>
             <p className="break-words break-keep">
               {invitationData.signature.organization}
             </p>
-            <p className="font-bold text-xl text-gray-700 sm:text-3xl">
+            <p className="font-bold text-2xl text-gray-700 sm:text-4xl">
               {invitationData.signature.name}
             </p>
           </div>
