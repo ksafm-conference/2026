@@ -3,7 +3,6 @@ import { pageSeo } from "@/data/seo";
 import Link from "next/link";
 import { asset } from "@/lib/paths";
 import AutoSplitLetter from "@/components/AutoSplitLetter";
-import ComingSoon from "@/components/ComingSoon";
 import { invitationData } from "@/data/invitation";
 
 export const metadata: Metadata = {
@@ -32,20 +31,23 @@ export default function Page() {
           </li>
         </ol>
       </nav>
-      {true ? (
-        <ComingSoon />
-      ) : (
-        <section className="rounded-2xl border bg-white p-6 shadow-sm">
-          <AutoSplitLetter text={invitationData.letter} imageSrc={asset("/files/sim.jpg")} />
+      <section className="rounded-2xl border bg-white p-6 shadow-sm">
+        <h1 className="mb-8 break-keep text-2xl font-bold text-gray-900 md:text-3xl">
+          {invitationData.title}
+        </h1>
+        <AutoSplitLetter
+          text={invitationData.letter}
+          imageSrc={asset("/files/sim.jpg")}
+        />
 
-          <div className="mt-8 space-y-3 text-right text-black text-lg">
-            <p>{invitationData.signature.organization}</p>
-            <p className="whitespace-pre-wrap font-bold text-3xl text-gray-700">
-              {invitationData.signature.name}
-            </p>
-          </div>
-        </section>
-      )}
+        <div className="mt-8 space-y-3 text-right text-black text-lg">
+          <p>{invitationData.signature.date}</p>
+          <p>{invitationData.signature.organization}</p>
+          <p className="whitespace-pre-wrap font-bold text-3xl text-gray-700">
+            {invitationData.signature.name}
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
