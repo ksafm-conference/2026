@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { pageSeo } from "@/data/seo";
 import Link from "next/link";
+import Image from "next/image";
 import { asset } from "@/lib/paths";
-import AutoSplitLetter from "@/components/AutoSplitLetter";
 import { invitationData } from "@/data/invitation";
 
 export const metadata: Metadata = {
@@ -35,17 +35,29 @@ export default function Page() {
         <h1 className="mb-8 break-keep text-2xl font-bold text-gray-900 md:text-3xl">
           {invitationData.title}
         </h1>
-        <AutoSplitLetter
-          text={invitationData.letter}
-          imageSrc={asset("/files/sim.jpg")}
-        />
+        <div className="space-y-6 text-lg leading-relaxed lg:text-xl">
+          {invitationData.letter.split("\n\n").map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
 
-        <div className="mt-8 space-y-3 text-right text-black text-lg">
-          <p>{invitationData.signature.date}</p>
-          <p>{invitationData.signature.organization}</p>
-          <p className="whitespace-pre-wrap font-bold text-3xl text-gray-700">
-            {invitationData.signature.name}
-          </p>
+        <div className="mt-10 flex items-end justify-between gap-4 sm:gap-8">
+          <Image
+            src={asset("/files/sim.jpg")}
+            alt="한국농림기상학회장 심교문"
+            width={600}
+            height={777}
+            className="h-auto w-20 shrink-0 sm:w-40 lg:w-48"
+          />
+          <div className="min-w-0 space-y-3 text-right text-sm text-black sm:text-lg">
+            <p>{invitationData.signature.date}</p>
+            <p className="break-words break-keep">
+              {invitationData.signature.organization}
+            </p>
+            <p className="font-bold text-xl text-gray-700 sm:text-3xl">
+              {invitationData.signature.name}
+            </p>
+          </div>
         </div>
       </section>
     </main>
